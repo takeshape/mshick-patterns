@@ -1,0 +1,961 @@
+{
+  "schemaVersion": "3",
+  "created": "2017-07-13T19:16:10.801Z",
+  "workflows": {},
+  "services": {
+    "shopify:michaels-store-takeshape": {
+      "params": {
+        "namespace": "Shopify",
+        "name": "Michael's Store TakeShape",
+        "authHeader": "X-Shopify-Access-Token",
+        "endpoint": "https://michaels-store-takeshape.myshopify.com/admin/api/2020-07/graphql.json",
+        "shop": "michaels-store-takeshape",
+        "type": "graphql"
+      },
+      "auth": "mdeoTWe0eN/uhEYkt340eOWv+fGB5s24qnQUvcqlqEztMMZPZkODb7+sHYPxkNwtgTRXdNsubTOWJlc99nEDYy2Fd85dTqqYcNTTyPsRK7jr3xXH/WBS8Rn8Vquy2LGk6dD9i1wNgMx8Rb8JTLRgusTvZzXLweQ="
+    }
+  },
+  "version": 2,
+  "queries": {
+    "getPostList": {
+      "args": "TSListArgs<Post>",
+      "resolver": {
+        "name": "takeshape:list",
+        "options": {
+          "model": "Post"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Returns a list Post in natural order.",
+      "shape": "PaginatedList<Post>"
+    },
+    "getProduct": {
+      "args": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "@tag": "id"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "shape": "Shopify_Product",
+      "resolver": {
+        "name": "graphql:query",
+        "options": {
+          "fieldName": "product"
+        },
+        "service": "shopify:michaels-store-takeshape"
+      }
+    },
+    "getPost": {
+      "args": "TSGetArgs<Post>",
+      "resolver": {
+        "name": "takeshape:get",
+        "options": {
+          "model": "Post"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Get a Post by ID",
+      "shape": "Post"
+    },
+    "getTag": {
+      "args": "TSGetArgs<Tag>",
+      "resolver": {
+        "name": "takeshape:get",
+        "options": {
+          "model": "Tag"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Get a Tag by ID",
+      "shape": "Tag"
+    },
+    "getProductList": {
+      "args": {
+        "type": "object",
+        "properties": {
+          "sortKey": {
+            "description": "Sort the underlying list by the given key.",
+            "enum": [
+              "TITLE",
+              "PRODUCT_TYPE",
+              "VENDOR",
+              "INVENTORY_TOTAL",
+              "UPDATED_AT",
+              "CREATED_AT",
+              "PUBLISHED_AT",
+              "ID",
+              "RELEVANCE"
+            ]
+          },
+          "last": {
+            "type": "integer",
+            "description": "Returns up to the last `n` elements from the list."
+          },
+          "before": {
+            "type": "string",
+            "description": "Returns the elements that come before the specified cursor."
+          },
+          "query": {
+            "type": "string",
+            "description": "Supported filter parameters:\n - `barcode`\n - `created_at`\n - `delivery_profile_id`\n - `error_feedback`\n - `gift_card`\n - `inventory_total`\n - `is_price_reduced`\n - `out_of_stock_somewhere`\n - `price`\n - `product_type`\n - `publishable_status`\n - `published_status`\n - `sku`\n - `status`\n - `tag`\n - `title`\n - `updated_at`\n - `vendor`\n\nSee the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax)\nfor more information about using filters."
+          },
+          "savedSearchId": {
+            "type": "string",
+            "@tag": "id",
+            "description": "ID of an existing saved search.\nThe search’s query string is used as the query argument."
+          },
+          "after": {
+            "type": "string",
+            "description": "Returns the elements that come after the specified cursor."
+          },
+          "reverse": {
+            "type": "boolean",
+            "description": "Reverse the order of the underlying list."
+          },
+          "first": {
+            "type": "integer",
+            "description": "Returns up to the first `n` elements from the list."
+          }
+        }
+      },
+      "shape": "Shopify_ProductConnection",
+      "resolver": {
+        "name": "graphql:query",
+        "options": {
+          "fieldName": "products"
+        },
+        "service": "shopify:michaels-store-takeshape"
+      }
+    },
+    "getTagList": {
+      "args": "TSListArgs<Tag>",
+      "resolver": {
+        "name": "takeshape:list",
+        "options": {
+          "model": "Tag"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Returns a list Tag in natural order.",
+      "shape": "PaginatedList<Tag>"
+    }
+  },
+  "dataKey": "AQIDAHhcZWXOdlBglkxBhI23ElO/clC/kuw5ynjXDSqJgfTz8gFvrYhMK581OOYYSjJNwit9AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMPLnOWQxVHD5AzgXdAgEQgDu0ANKQTBQ7dNFJEQcd2aOfZncgw7DjUasC+7Yp2ci0Y2+ZmbbtIa2kcHBt8eriFPR28uwgnvDzn8t6Qw==",
+  "defaultLocale": "en",
+  "locales": [
+    "en"
+  ],
+  "apiVersion": "2",
+  "mutations": {
+    "deletePost": {
+      "args": "DeleteArgs<Post>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "options": {
+          "model": "Post"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Delete Post",
+      "shape": "DeleteResult<Post>"
+    },
+    "updateTag": {
+      "args": "UpdateArgs<Tag>",
+      "resolver": {
+        "name": "takeshape:update",
+        "options": {
+          "model": "Tag"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Update Tag",
+      "shape": "UpdateResult<Tag>"
+    },
+    "deleteTag": {
+      "args": "DeleteArgs<Tag>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "options": {
+          "model": "Tag"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Delete Tag",
+      "shape": "DeleteResult<Tag>"
+    },
+    "updatePost": {
+      "args": "UpdateArgs<Post>",
+      "resolver": {
+        "name": "takeshape:update",
+        "options": {
+          "model": "Post"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Update Post",
+      "shape": "UpdateResult<Post>"
+    },
+    "createTag": {
+      "args": "CreateArgs<Tag>",
+      "resolver": {
+        "name": "takeshape:create",
+        "options": {
+          "model": "Tag"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Create Tag",
+      "shape": "CreateResult<Tag>"
+    },
+    "createPost": {
+      "args": "CreateArgs<Post>",
+      "resolver": {
+        "name": "takeshape:create",
+        "options": {
+          "model": "Post"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Create Post",
+      "shape": "CreateResult<Post>"
+    },
+    "updateProduct": {
+      "args": "UpdateArgs<Post>",
+      "resolver": {
+        "compose": [
+          {
+            "name": "takeshape:update",
+            "options": {
+              "model": "Post"
+            },
+            "argsMapping": {
+              "input": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.args.input"
+                  }
+                ]
+              ]
+            },
+            "service": "takeshape:local"
+          },
+          {
+            "name": "graphql:mutation",
+            "options": {
+              "selectionSet": "{ product { id } }",
+              "fieldName": "productUpdate"
+            },
+            "argsMapping": {
+              "input.id": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.results[0].result.productId"
+                  }
+                ]
+              ],
+              "input.title": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.args.input.title"
+                  }
+                ]
+              ]
+            },
+            "service": "shopify:michaels-store-takeshape"
+          }
+        ],
+        "resultsMapping": [
+          [
+            "jsonPath",
+            {
+              "path": "$.results[0]"
+            }
+          ]
+        ]
+      },
+      "description": "Update Post",
+      "shape": "UpdateResult<Post>"
+    },    
+    "createProduct": {
+      "args": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "shape": "CreateResult<Post>",
+      "resolver": {
+        "compose": [
+          {
+            "name": "graphql:mutation",
+            "options": {
+              "selectionSet": "{ product { id } }",
+              "fieldName": "productCreate"
+            },
+            "argsMapping": {
+              "input.title": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.args.title"
+                  }
+                ]
+              ]
+            },
+            "service": "shopify:michaels-store-takeshape"
+          },
+          {
+            "name": "takeshape:create",
+            "options": {
+              "model": "Post"
+            },
+            "argsMapping": {
+              "input.productId": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.results[0].product.id"
+                  }
+                ]
+              ],
+              "input.title": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.args.title"
+                  }
+                ]
+              ]
+            },
+            "service": "takeshape:local"
+          }
+        ]
+      }
+    },
+    "duplicatePost": {
+      "args": "DuplicateArgs<Post>",
+      "resolver": {
+        "name": "takeshape:duplicate",
+        "options": {
+          "model": "Post"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Duplicate Post",
+      "shape": "DuplicateResult<Post>"
+    },
+    "duplicateTag": {
+      "args": "DuplicateArgs<Tag>",
+      "resolver": {
+        "name": "takeshape:duplicate",
+        "options": {
+          "model": "Tag"
+        },
+        "service": "takeshape:local"
+      },
+      "description": "Duplicate Tag",
+      "shape": "DuplicateResult<Tag>"
+    }
+  },
+  "shapes": {
+    "Shopify_Product": {
+      "name": "Shopify_Product",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "templateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.templateSuffix",
+            "description": "The theme template used when viewing the product in a store."
+          },
+          "giftCardTemplateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.giftCardTemplateSuffix",
+            "description": "The theme template used when viewing the gift card in a store."
+          },
+          "description": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.description",
+            "description": "A stripped description of the product, single line with HTML tags removed.",
+            "type": "string",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "truncateAt": {
+                  "type": "integer",
+                  "description": "Truncates string after the given length."
+                }
+              }
+            }
+          },
+          "onlineStorePreviewUrl": {
+            "@tag": "Shopify_URL",
+            "description": "The online store preview URL.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.onlineStorePreviewUrl"
+          },
+          "storefrontId": {
+            "@tag": "Shopify_StorefrontID",
+            "description": "The storefront ID of the product.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.storefrontId"
+          },
+          "inCollection": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.inCollection",
+            "description": "Whether the product is in a given collection.",
+            "type": "boolean",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "@tag": "id",
+                  "description": "The ID of the collection to check."
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          },
+          "totalInventory": {
+            "type": "integer",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.totalInventory",
+            "description": "The quantity of inventory in stock."
+          },
+          "title": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.title",
+            "description": "The title of the product."
+          },
+          "createdAt": {
+            "@tag": "Shopify_DateTime",
+            "description": "The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was created.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.createdAt"
+          },
+          "hasOnlyDefaultVariant": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.hasOnlyDefaultVariant",
+            "description": "Whether the product has only a single variant with the default option and value."
+          },
+          "legacyResourceId": {
+            "@tag": "Shopify_UnsignedInt64",
+            "description": "The ID of the corresponding resource in the REST Admin API.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.legacyResourceId"
+          },
+          "vendor": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.vendor",
+            "description": "The name of the product's vendor."
+          },
+          "mediaCount": {
+            "type": "integer",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.mediaCount",
+            "description": "Total count of media belonging to a product."
+          },
+          "bodyHtml": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.bodyHtml",
+            "@deprecationReason": "Use `descriptionHtml` instead",
+            "description": "The description of the product, complete with HTML formatting.",
+            "type": "string"
+          },
+          "id": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.id",
+            "description": "Globally unique identifier.",
+            "type": "string",
+            "@tag": "id"
+          },
+          "productType": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.productType",
+            "description": "The product type specified by the merchant."
+          },
+          "updatedAt": {
+            "@tag": "Shopify_DateTime",
+            "description": "The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was last modified.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.updatedAt"
+          },
+          "isGiftCard": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.isGiftCard",
+            "description": "Whether the product is a gift card."
+          },
+          "publishedAt": {
+            "@tag": "Shopify_DateTime",
+            "description": "The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))\nwhen the product was published to the Online Store.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.publishedAt"
+          },
+          "availablePublicationCount": {
+            "type": "integer",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.availablePublicationCount",
+            "description": "The number of publications a resource is published to without feedback errors."
+          },
+          "handle": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.handle",
+            "description": "A unique human-friendly string of the product's title."
+          },
+          "totalVariants": {
+            "type": "integer",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.totalVariants",
+            "description": "The number of variants that are associated with the product."
+          },
+          "tracksInventory": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.tracksInventory",
+            "description": "Whether inventory tracking has been enabled for the product."
+          },
+          "hasOutOfStockVariants": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.hasOutOfStockVariants",
+            "description": "Whether the product has out of stock variants."
+          },
+          "tags": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.tags",
+            "description": "A comma separated list of tags that have been added to the product.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "descriptionPlainSummary": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.descriptionPlainSummary",
+            "@deprecationReason": "Use `description` instead",
+            "description": "Stripped description of the product, single line with HTML tags removed.\nTruncated to 60 characters.",
+            "type": "string"
+          },
+          "publicationCount": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.publicationCount",
+            "description": "The number of publications a resource is published on.",
+            "type": "integer",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "onlyPublished": {
+                  "type": "boolean",
+                  "description": "Include only the resource's publications that are published. If false, then\nreturn all the resource's publications including future publications."
+                }
+              }
+            }
+          },
+          "publishedOnCurrentPublication": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.publishedOnCurrentPublication",
+            "description": "Check to see whether the resource is published to the calling app's publication."
+          },
+          "onlineStoreUrl": {
+            "@tag": "Shopify_URL",
+            "description": "The online store URL for the product.\nA value of `null` indicates that the product is not published to the Online Store sales channel.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.onlineStoreUrl"
+          },
+          "descriptionHtml": {
+            "@tag": "Shopify_HTML",
+            "description": "The description of the product, complete with HTML formatting.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.descriptionHtml"
+          },
+          "defaultCursor": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.defaultCursor",
+            "description": "A default cursor for use in pagination."
+          },
+          "publishedOnChannel": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.publishedOnChannel",
+            "@deprecationReason": "Use `publishedOnPublication` instead",
+            "description": "Check to see whether the resource is published to a given channel.",
+            "type": "boolean",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "channelId": {
+                  "type": "string",
+                  "@tag": "id",
+                  "description": "The ID of the channel to check."
+                }
+              },
+              "required": [
+                "channelId"
+              ]
+            }
+          },
+          "publishedOnPublication": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.publishedOnPublication",
+            "description": "Check to see whether the resource is published to a given publication.",
+            "type": "boolean",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "publicationId": {
+                  "type": "string",
+                  "@tag": "id",
+                  "description": "The ID of the publication to check."
+                }
+              },
+              "required": [
+                "publicationId"
+              ]
+            }
+          },
+          "publishedOnCurrentChannel": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_Product.publishedOnCurrentChannel",
+            "@deprecationReason": "Use `publishedOnCurrentPublication` instead",
+            "description": "Check to see whether the resource is published to the calling app's channel.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "availablePublicationCount",
+          "createdAt",
+          "defaultCursor",
+          "description",
+          "descriptionHtml",
+          "descriptionPlainSummary",
+          "handle",
+          "id",
+          "inCollection",
+          "isGiftCard",
+          "legacyResourceId",
+          "mediaCount",
+          "productType",
+          "storefrontId",
+          "tags",
+          "title",
+          "totalInventory",
+          "totalVariants",
+          "tracksInventory",
+          "updatedAt",
+          "vendor"
+        ]
+      },
+      "description": "Represents a product, including information about related collections and product variants.",
+      "id": "shopifyProduct",
+      "title": "Shopify_Product"
+    },
+    "Post": {
+      "name": "Post",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "shopifyProduct": {
+            "title": "Shopify Product",
+            "$ref": "#/shapes/Shopify_Product/schema",
+            "@resolver": {
+              "name": "graphql:query",
+              "options": {
+                "fieldName": "product"
+              },
+              "argsMapping": {
+                "id": [
+                  [
+                    "jsonPath",
+                    {
+                      "path": "$.source.productId"
+                    }
+                  ]
+                ]
+              },
+              "service": "shopify:michaels-store-takeshape"
+            }
+          },
+          "rating": {
+            "title": "Rating",
+            "type": "integer",
+            "@mapping": "takeshape:local:Post.ratingId"
+          },
+          "productId": {
+            "@mapping": "takeshape:local:Post.productId",
+            "title": "Product ID",
+            "type": "string",
+            "@tag": "id"
+          },
+          "title": {
+            "@mapping": "takeshape:local:Post.titleId",
+            "title": "Title",
+            "type": "string",
+            "@l10n": true
+          },
+          "body": {
+            "@mapping": "takeshape:local:Post.bodyId",
+            "title": "Body",
+            "type": "string",
+            "@l10n": true
+          },
+          "tags": {
+            "@mapping": "takeshape:local:Post.tagsId",
+            "title": "Tags",
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSRelationship/schema"
+            },
+            "@relationship": {
+              "type": "multiple",
+              "shapeIds": [
+                "tagContentTypeId"
+              ],
+              "relatedName": "firstTags"
+            }
+          }
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "model": {
+        "type": "multiple"
+      },
+      "id": "postContentTypeId",
+      "title": "Post"
+    },
+    "Shopify_ProductInput": {
+      "name": "Shopify_ProductInput",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "publishedAt": {
+            "@tag": "Shopify_DateTime",
+            "description": "Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.publishedAt"
+          },
+          "templateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.templateSuffix",
+            "description": "The theme template used when viewing the product in a store."
+          },
+          "giftCardTemplateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.giftCardTemplateSuffix",
+            "description": "The theme template used when viewing the gift card in a store."
+          },
+          "publishDate": {
+            "@tag": "Shopify_DateTime",
+            "description": "Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.publishDate"
+          },
+          "handle": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.handle",
+            "description": "A unique human-friendly string for the product. Automatically generated from the product's title."
+          },
+          "publishOn": {
+            "@tag": "Shopify_DateTime",
+            "description": "Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead.",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.publishOn"
+          },
+          "published": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.published",
+            "description": "Only products with an active status can be published. This argument is deprecated: Use `PublishablePublish` instead."
+          },
+          "title": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.title",
+            "description": "The title of the product."
+          },
+          "redirectNewHandle": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.redirectNewHandle",
+            "description": "Whether a redirect is required after a new handle has been provided.\nIf true, then the old handle is redirected to the new one automatically."
+          },
+          "tags": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.tags",
+            "description": "A comma separated list tags that have been added to the product.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "vendor": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.vendor",
+            "description": "The name of the product's vendor."
+          },
+          "giftCard": {
+            "type": "boolean",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.giftCard",
+            "description": "Whether the product is a gift card."
+          },
+          "collectionsToLeave": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.collectionsToLeave",
+            "description": "The IDs of collections that will no longer include the product.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "@tag": "id"
+            }
+          },
+          "options": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.options",
+            "description": "List of custom product options (maximum of 3 per product).",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "descriptionHtml": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.descriptionHtml",
+            "description": "The description of the product, complete with HTML formatting."
+          },
+          "bodyHtml": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.bodyHtml",
+            "description": "A description of the product. Supports HTML formatting. This argument is deprecated: Use `descriptionHtml` instead."
+          },
+          "id": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.id",
+            "description": "Specifies the product to update in productUpdate or creates a new product if absent in productCreate.",
+            "type": "string",
+            "@tag": "id"
+          },
+          "collectionsToJoin": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.collectionsToJoin",
+            "description": "The IDs of the collections that this product will be added to.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "@tag": "id"
+            }
+          },
+          "productType": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductInput.productType",
+            "description": "The product type specified by the merchant."
+          }
+        }
+      },
+      "description": "Specifies the input fields required to create a product.",
+      "id": "shopifyProductInput",
+      "title": "Shopify_ProductInput"
+    },
+    "Shopify_ProductCreatePayload": {
+      "name": "Shopify_ProductCreatePayload",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "$ref": "#/shapes/Shopify_Product/schema",
+            "description": "The product object."
+          }
+        }
+      },
+      "description": "Return type for `productCreate` mutation.",
+      "id": "shopifyProductCreatePayload",
+      "title": "Shopify_ProductCreatePayload"
+    },
+    "Shopify_ProductEdge": {
+      "name": "Shopify_ProductEdge",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductEdge.cursor",
+            "description": "A cursor for use in pagination."
+          },
+          "node": {
+            "$ref": "#/shapes/Shopify_Product/schema",
+            "description": "The item at the end of ProductEdge."
+          }
+        },
+        "required": [
+          "cursor",
+          "node"
+        ]
+      },
+      "id": "shopifyProductEdge",
+      "title": "Shopify_ProductEdge"
+    },
+    "Shopify_ProductConnection": {
+      "name": "Shopify_ProductConnection",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "edges": {
+            "@mapping": "shopify:michaels-store-takeshape:Shopify_ProductConnection.edges",
+            "description": "A list of edges.",
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/Shopify_ProductEdge/schema"
+            }
+          }
+        },
+        "required": [
+          "edges"
+        ]
+      },
+      "id": "shopifyProductConnection",
+      "title": "Shopify_ProductConnection"
+    },
+    "Tag": {
+      "name": "Tag",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "@mapping": "takeshape:local:Tag.nameId"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "model": {
+        "type": "taxonomy"
+      },
+      "id": "tagContentTypeId",
+      "title": "Tag"
+    }
+  },
+  "projectId": "1dd77552-46ef-4324-bd04-82120a2aebbd",
+  "updated": "2018-09-08T20:16:45.814Z",
+  "forms": {
+    "Post": {
+      "default": {
+        "properties": {
+          "rating": {
+            "widget": "number"
+          },
+          "title": {
+            "widget": "singleLineText"
+          },
+          "body": {
+            "widget": "singleLineText"
+          },
+          "productId": {
+            "widget": "singleLineText"
+          },
+          "tags": {
+            "widget": "relationship"
+          }
+        },
+        "order": [
+          "title",
+          "body",
+          "rating",
+          "tags"
+        ]
+      }
+    },
+    "Tag": {
+      "default": {
+        "properties": {
+          "name": {
+            "widget": "singleLineText"
+          }
+        },
+        "order": [
+          "name"
+        ]
+      }
+    }
+  }
+}
