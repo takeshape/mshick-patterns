@@ -42,7 +42,7 @@
           "id"
         ]
       },
-      "shape": "Shopify_Product",
+      "shape": "TSShopify_Product",
       "resolver": {
         "name": "graphql:query",
         "options": {
@@ -124,7 +124,7 @@
           }
         }
       },
-      "shape": "Shopify_ProductConnection",
+      "shape": "TSShopify_ProductConnection",
       "resolver": {
         "name": "graphql:query",
         "options": {
@@ -369,8 +369,8 @@
     }
   },
   "shapes": {
-    "Shopify_Product": {
-      "name": "Shopify_Product",
+    "TSShopify_Product": {
+      "name": "TSShopify_Product",
       "schema": {
         "type": "object",
         "properties": {
@@ -636,7 +636,7 @@
       },
       "description": "Represents a product, including information about related collections and product variants.",
       "id": "shopifyProduct",
-      "title": "Shopify_Product"
+      "title": "TSShopify_Product"
     },
     "Post": {
       "name": "Post",
@@ -713,8 +713,8 @@
       "id": "postContentTypeId",
       "title": "Post"
     },
-    "Shopify_ProductInput": {
-      "name": "Shopify_ProductInput",
+    "TSShopify_ProductInput": {
+      "name": "TSShopify_ProductInput",
       "schema": {
         "type": "object",
         "properties": {
@@ -832,10 +832,10 @@
       },
       "description": "Specifies the input fields required to create a product.",
       "id": "shopifyProductInput",
-      "title": "Shopify_ProductInput"
+      "title": "TSShopify_ProductInput"
     },
-    "Shopify_ProductCreatePayload": {
-      "name": "Shopify_ProductCreatePayload",
+    "TSShopify_ProductCreatePayload": {
+      "name": "TSShopify_ProductCreatePayload",
       "schema": {
         "type": "object",
         "properties": {
@@ -847,10 +847,10 @@
       },
       "description": "Return type for `productCreate` mutation.",
       "id": "shopifyProductCreatePayload",
-      "title": "Shopify_ProductCreatePayload"
+      "title": "TSShopify_ProductCreatePayload"
     },
-    "Shopify_ProductEdge": {
-      "name": "Shopify_ProductEdge",
+    "TSShopify_ProductEdge": {
+      "name": "TSShopify_ProductEdge",
       "schema": {
         "type": "object",
         "properties": {
@@ -870,10 +870,10 @@
         ]
       },
       "id": "shopifyProductEdge",
-      "title": "Shopify_ProductEdge"
+      "title": "TSShopify_ProductEdge"
     },
-    "Shopify_ProductConnection": {
-      "name": "Shopify_ProductConnection",
+    "TSShopify_ProductConnection": {
+      "name": "TSShopify_ProductConnection",
       "schema": {
         "type": "object",
         "properties": {
@@ -891,7 +891,7 @@
         ]
       },
       "id": "shopifyProductConnection",
-      "title": "Shopify_ProductConnection"
+      "title": "TSShopify_ProductConnection"
     },
     "Tag": {
       "name": "Tag",
