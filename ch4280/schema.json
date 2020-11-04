@@ -645,7 +645,7 @@
         "properties": {
           "shopifyProduct": {
             "title": "Shopify Product",
-            "$ref": "#/shapes/Shopify_Product/schema",
+            "$ref": "#/shapes/TSShopify_Product/schema",
             "@resolver": {
               "name": "graphql:query",
               "options": {
@@ -840,7 +840,7 @@
         "type": "object",
         "properties": {
           "product": {
-            "$ref": "#/shapes/Shopify_Product/schema",
+            "$ref": "#/shapes/TSShopify_Product/schema",
             "description": "The product object."
           }
         }
@@ -860,7 +860,7 @@
             "description": "A cursor for use in pagination."
           },
           "node": {
-            "$ref": "#/shapes/Shopify_Product/schema",
+            "$ref": "#/shapes/TSShopify_Product/schema",
             "description": "The item at the end of ProductEdge."
           }
         },
@@ -882,7 +882,7 @@
             "description": "A list of edges.",
             "type": "array",
             "items": {
-              "$ref": "#/shapes/Shopify_ProductEdge/schema"
+              "$ref": "#/shapes/TSShopify_ProductEdge/schema"
             }
           }
         },
