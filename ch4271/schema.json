@@ -349,7 +349,7 @@
       "resolver": {
         "resultsMapping": [["jsonPath", {"path":"$.results[0]"}]],
         "compose": [{
-            "argsMapping": [["jsonPath", {"path": "$.args.input"}]],
+            "argsMapping": [["jsonPath", {"path": "$.args"}]],
             "name": "takeshape:update",
             "service": "takeshape:local",
             "options": {
@@ -358,7 +358,7 @@
           }, {
             "argsMapping": {
               "input.id": [["jsonPath", {"path": "$.results[0].result.andrewsTakeshapeStoreId"}]],
-              "input.title": [["jsonPath", {"path": "$.args.input.title"}]]
+              "input.title": [["jsonPath", {"path": "$.results[0].result.name"}]]
             },
             "name": "graphql:mutation",
             "service": "shopify:my-store",
@@ -377,7 +377,7 @@
       "resolver": {
         "compose": [{
             "argsMapping": {
-              "input.title": [["jsonPath", {"path": "$.args.title"}]]
+              "input.title": [["jsonPath", {"path": "$.args.input.name"}]]
             },
             "name": "graphql:mutation",
             "service": "shopify:my-store",
@@ -424,7 +424,7 @@
                 [
                   "jsonPath",
                   {
-                    "path": "$.results[0].result.title"
+                    "path": "$.results[0].result.name"
                   }
                 ]
               ]
@@ -1529,11 +1529,7 @@
           }
         },
         "required": [
-          "name",
-          "andrewsTakeshapeStoreId",
-          "category",
-          "image",
-          "price"
+          "name"
         ]
       },
       "workflow": "default"
