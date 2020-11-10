@@ -1,0 +1,2917 @@
+{
+  "workflows": {
+    "default": {
+      "name": "default",
+      "title": "Default",
+      "steps": [
+        {
+          "name": "disabled",
+          "title": "Disabled",
+          "key": "r1uCfi4ZL",
+          "color": "#bdbdbd",
+          "live": false
+        },
+        {
+          "name": "enabled",
+          "title": "Enabled",
+          "key": "rkhRGs4WL",
+          "color": "#5cd79b",
+          "live": true
+        }
+      ]
+    }
+  },
+  "apiVersion": "2",
+  "defaultLocale": "en",
+  "locales": [
+    "en"
+  ],
+  "projectId": "b480d0b3-6010-4e11-86a1-a473f26d2eea",
+  "version": 4,
+  "schemaVersion": "3",
+  "queries": {
+    "getAsset": {
+      "shape": "Asset",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Asset"
+        }
+      },
+      "description": "Get a Asset by ID",
+      "args": "TSGetArgs<Asset>"
+    },
+    "getAssetList": {
+      "shape": "PaginatedList<Asset>",
+      "resolver": {
+        "name": "takeshape:list",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Asset"
+        }
+      },
+      "description": "Returns a list Asset in natural order.",
+      "args": "TSListArgs<Asset>"
+    },
+    "getTsStaticSite": {
+      "shape": "TsStaticSite",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "TsStaticSite"
+        }
+      },
+      "description": "Get a TsStaticSite by ID",
+      "args": "TSGetArgs<TsStaticSite>"
+    },
+    "getTsStaticSiteList": {
+      "shape": "PaginatedList<TsStaticSite>",
+      "resolver": {
+        "name": "takeshape:list",
+        "service": "takeshape:local",
+        "options": {
+          "model": "TsStaticSite"
+        }
+      },
+      "description": "Returns a list TsStaticSite in natural order.",
+      "args": "TSListArgs<TsStaticSite>"
+    },
+    "getCategory": {
+      "shape": "Category",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Category"
+        }
+      },
+      "description": "Get a Category by ID",
+      "args": "TSGetArgs<Category>"
+    },
+    "getCategoryList": {
+      "shape": "PaginatedList<Category>",
+      "resolver": {
+        "name": "takeshape:list",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Category"
+        }
+      },
+      "description": "Returns a list Category in natural order.",
+      "args": "TSListArgs<Category>"
+    },
+    "getHomepage": {
+      "shape": "Homepage",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Homepage"
+        }
+      },
+      "description": "Get a Homepage by ID",
+      "args": "TSGetSingletonArgs<Homepage>"
+    },
+    "getSiteSettings": {
+      "shape": "SiteSettings",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "SiteSettings"
+        }
+      },
+      "description": "Get a SiteSettings by ID",
+      "args": "TSGetSingletonArgs<SiteSettings>"
+    },
+    "getProduct": {
+      "shape": "Product",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Product"
+        }
+      },
+      "description": "Get a Product by ID",
+      "args": "TSGetArgs<Product>"
+    },
+    "getProductList": {
+      "shape": "PaginatedList<Product>",
+      "resolver": {
+        "name": "takeshape:list",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Product"
+        }
+      },
+      "description": "Returns a list Product in natural order.",
+      "args": "TSListArgs<Product>"
+    },
+    "getCollection": {
+      "shape": "Collection",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Collection"
+        }
+      },
+      "description": "Get a Collection by ID",
+      "args": "TSGetArgs<Collection>"
+    },
+    "getCollectionList": {
+      "shape": "PaginatedList<Collection>",
+      "resolver": {
+        "name": "takeshape:list",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Collection"
+        }
+      },
+      "description": "Returns a list Collection in natural order.",
+      "args": "TSListArgs<Collection>"
+    }
+  },
+  "mutations": {
+    "updateAsset": {
+      "shape": "UpdateResult<Asset>",
+      "resolver": {
+        "name": "takeshape:update",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Asset"
+        }
+      },
+      "description": "Update Asset",
+      "args": "UpdateArgs<Asset>"
+    },
+    "createAsset": {
+      "shape": "CreateResult<Asset>",
+      "resolver": {
+        "name": "takeshape:create",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Asset"
+        }
+      },
+      "description": "Create Asset",
+      "args": "CreateArgs<Asset>"
+    },
+    "duplicateAsset": {
+      "shape": "DuplicateResult<Asset>",
+      "resolver": {
+        "name": "takeshape:duplicate",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Asset"
+        }
+      },
+      "description": "Duplicate Asset",
+      "args": "DuplicateArgs<Asset>"
+    },
+    "deleteAsset": {
+      "shape": "DeleteResult<Asset>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Asset"
+        }
+      },
+      "description": "Delete Asset",
+      "args": "DeleteArgs<Asset>"
+    },
+    "updateTsStaticSite": {
+      "shape": "UpdateResult<TsStaticSite>",
+      "resolver": {
+        "name": "takeshape:update",
+        "service": "takeshape:local",
+        "options": {
+          "model": "TsStaticSite"
+        }
+      },
+      "description": "Update TsStaticSite",
+      "args": "UpdateArgs<TsStaticSite>"
+    },
+    "createTsStaticSite": {
+      "shape": "CreateResult<TsStaticSite>",
+      "resolver": {
+        "name": "takeshape:create",
+        "service": "takeshape:local",
+        "options": {
+          "model": "TsStaticSite"
+        }
+      },
+      "description": "Create TsStaticSite",
+      "args": "CreateArgs<TsStaticSite>"
+    },
+    "duplicateTsStaticSite": {
+      "shape": "DuplicateResult<TsStaticSite>",
+      "resolver": {
+        "name": "takeshape:duplicate",
+        "service": "takeshape:local",
+        "options": {
+          "model": "TsStaticSite"
+        }
+      },
+      "description": "Duplicate TsStaticSite",
+      "args": "DuplicateArgs<TsStaticSite>"
+    },
+    "deleteTsStaticSite": {
+      "shape": "DeleteResult<TsStaticSite>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "service": "takeshape:local",
+        "options": {
+          "model": "TsStaticSite"
+        }
+      },
+      "description": "Delete TsStaticSite",
+      "args": "DeleteArgs<TsStaticSite>"
+    },
+    "updateCategory": {
+      "shape": "UpdateResult<Category>",
+      "resolver": {
+        "name": "takeshape:update",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Category"
+        }
+      },
+      "description": "Update Category",
+      "args": "UpdateArgs<Category>"
+    },
+    "createCategory": {
+      "shape": "CreateResult<Category>",
+      "resolver": {
+        "name": "takeshape:create",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Category"
+        }
+      },
+      "description": "Create Category",
+      "args": "CreateArgs<Category>"
+    },
+    "duplicateCategory": {
+      "shape": "DuplicateResult<Category>",
+      "resolver": {
+        "name": "takeshape:duplicate",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Category"
+        }
+      },
+      "description": "Duplicate Category",
+      "args": "DuplicateArgs<Category>"
+    },
+    "deleteCategory": {
+      "shape": "DeleteResult<Category>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Category"
+        }
+      },
+      "description": "Delete Category",
+      "args": "DeleteArgs<Category>"
+    },
+    "updateHomepage": {
+      "shape": "UpdateResult<Homepage>",
+      "resolver": {
+        "name": "takeshape:update",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Homepage"
+        }
+      },
+      "description": "Update Homepage",
+      "args": "UpdateArgs<Homepage>"
+    },
+    "updateSiteSettings": {
+      "shape": "UpdateResult<SiteSettings>",
+      "resolver": {
+        "name": "takeshape:update",
+        "service": "takeshape:local",
+        "options": {
+          "model": "SiteSettings"
+        }
+      },
+      "description": "Update SiteSettings",
+      "args": "UpdateArgs<SiteSettings>"
+    },
+    "updateProduct": {
+      "shape": "UpdateResult<Product>",
+      "resolver": {
+        "resultsMapping": [["jsonPath", {"path":"$.results[2]"}]],
+        "compose": [{
+            "argsMapping": [["jsonPath", {"path": "$.args"}]],
+            "name": "takeshape:update",
+            "service": "takeshape:local",
+            "options": {
+              "model": "Product"
+            }
+          }, {
+            "argsMapping": {
+              "input.id": [["jsonPath", {"path": "$.results[0].result.andrewsTakeshapeStoreId"}]],
+              "input.title": [["jsonPath", {"path": "$.results[0].result.name"}]]
+            },
+            "name": "graphql:mutation",
+            "service": "shopify:my-store",
+            "options": {
+              "fieldName": "productUpdate",
+              "selectionSet": "{ product { id } }"
+            }
+          }, {
+            "argsMapping": {
+              "_id": [["jsonPath", {"path": "$.args.input._id"}]]
+            },
+            "name": "takeshape:get",
+            "service": "takeshape:local",
+            "options": {
+              "model": "Product"
+            }
+          }
+        ]        
+      },      
+      "description": "Update Product",
+      "args": "UpdateArgs<Product>"
+    },
+    "createProduct": {
+      "shape": "CreateResult<Product>",
+      "resolver": {
+        "resultsMapping": [["jsonPath", {"path":"$.results[1]"}]],
+        "compose": [{
+            "argsMapping": {
+              "input.title": [["jsonPath", {"path": "$.args.input.name"}]]
+            },
+            "name": "graphql:mutation",
+            "service": "shopify:my-store",
+            "options": {
+              "fieldName": "productCreate",
+              "selectionSet": "{ product { id } }"
+            }
+          }, {
+            "argsMapping": {
+              "input": [["jsonPath", {"path": "$.args.input"}]],
+              "input.andrewsTakeshapeStoreId": [["jsonPath", {"path": "$.results[0].product.id"}]]
+            },
+            "name": "takeshape:create",
+            "service": "takeshape:local",
+            "options": {
+              "model": "Product"
+            }
+          }
+        ]        
+      },
+      "description": "Create Product",
+      "args": "CreateArgs<Product>"
+    },
+    "duplicateProduct": {
+      "args": "DuplicateArgs<Product>",
+      "resolver": {
+        "resultsMapping": [["jsonPath", {"path": "$.results[2]"}]],
+        "compose": [
+          {
+            "name": "takeshape:duplicate",
+            "options": {
+              "model": "Product"
+            },
+            "service": "takeshape:local"
+          },
+          {
+            "name": "graphql:mutation",
+            "options": {
+              "selectionSet": "{ product { id } }",
+              "fieldName": "productCreate"
+            },
+            "argsMapping": {
+              "input.title": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.results[0].result.name"
+                  }
+                ]
+              ]
+            },
+            "service": "shopify:my-store"
+          },
+          {
+            "name": "takeshape:update",
+            "options": {
+              "model": "Product"
+            },
+            "argsMapping": {
+              "input._id": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.results[0].result._id"
+                  }
+                ]
+              ],
+              "input.andrewsTakeshapeStoreId": [
+                [
+                  "jsonPath",
+                  {
+                    "path": "$.results[1].product.id"
+                  }
+                ]
+              ]
+            },
+            "service": "takeshape:local"
+          }
+        ]
+      },
+      "description": "Duplicate Product",
+      "shape": "DuplicateResult<Product>"
+    },
+    "deleteProduct": {
+      "shape": "DeleteResult<Product>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Product"
+        }
+      },
+      "description": "Delete Product",
+      "args": "DeleteArgs<Product>"
+    },
+    "updateCollection": {
+      "shape": "UpdateResult<Collection>",
+      "resolver": {
+        "name": "takeshape:update",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Collection"
+        }
+      },
+      "description": "Update Collection",
+      "args": "UpdateArgs<Collection>"
+    },
+    "createCollection": {
+      "shape": "CreateResult<Collection>",
+      "resolver": {
+        "name": "takeshape:create",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Collection"
+        }
+      },
+      "description": "Create Collection",
+      "args": "CreateArgs<Collection>"
+    },
+    "duplicateCollection": {
+      "shape": "DuplicateResult<Collection>",
+      "resolver": {
+        "name": "takeshape:duplicate",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Collection"
+        }
+      },
+      "description": "Duplicate Collection",
+      "args": "DuplicateArgs<Collection>"
+    },
+    "deleteCollection": {
+      "shape": "DeleteResult<Collection>",
+      "resolver": {
+        "name": "takeshape:delete",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Collection"
+        }
+      },
+      "description": "Delete Collection",
+      "args": "DeleteArgs<Collection>"
+    }
+  },
+  "created": "2017-07-13T19:16:10.801Z",
+  "updated": "2020-11-02T19:18:41.453Z",
+  "shapes": {
+    "TSRelationship": {
+      "id": "TSRelationship",
+      "name": "TSRelationship",
+      "title": "Relationship",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "shapeId": {
+            "type": "string"
+          },
+          "contentTypeId": {
+            "type": "string",
+            "@deprecationReason": "Use shapeId instead"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    "TSColorHsl": {
+      "id": "TSColorHsl",
+      "name": "TSColorHsl",
+      "title": "Color Hsl",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "h": {
+            "type": "number"
+          },
+          "a": {
+            "type": "number"
+          },
+          "s": {
+            "type": "number"
+          },
+          "l": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "TSColorHsv": {
+      "id": "TSColorHsv",
+      "name": "TSColorHsv",
+      "title": "Color Hsv",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "h": {
+            "type": "number"
+          },
+          "a": {
+            "type": "number"
+          },
+          "s": {
+            "type": "number"
+          },
+          "v": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "TSColorRgb": {
+      "id": "TSColorRgb",
+      "name": "TSColorRgb",
+      "title": "Color Rgb",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "number"
+          },
+          "b": {
+            "type": "number"
+          },
+          "r": {
+            "type": "number"
+          },
+          "g": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "TSColor": {
+      "id": "TSColor",
+      "name": "TSColor",
+      "title": "Color",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "hex": {
+            "type": "string"
+          },
+          "hsl": {
+            "$ref": "#/shapes/TSColorHsl/schema"
+          },
+          "hsv": {
+            "$ref": "#/shapes/TSColorHsv/schema"
+          },
+          "rgb": {
+            "$ref": "#/shapes/TSColorRgb/schema"
+          }
+        }
+      }
+    },
+    "Asset": {
+      "id": "ASSET",
+      "name": "Asset",
+      "title": "Asset",
+      "model": {
+        "type": "multiple"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "caption": {
+            "type": "object",
+            "title": "Caption",
+            "@mapping": "takeshape:local:Asset.SyWVsd98x",
+            "@tag": "draftjs"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "@mapping": "takeshape:local:Asset.B1Zsra3fx"
+          },
+          "uploadStatus": {
+            "type": "string",
+            "title": "Upload status",
+            "@l10n": false,
+            "@mapping": "takeshape:local:Asset.ByeAYXdG9"
+          },
+          "mimeType": {
+            "type": "string",
+            "title": "MIME type",
+            "@l10n": false,
+            "@mapping": "takeshape:local:Asset.SyCYX_Gq"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "@mapping": "takeshape:local:Asset.By5tQOMc"
+          },
+          "path": {
+            "type": "string",
+            "title": "Path",
+            "@l10n": false,
+            "minLength": 1,
+            "@mapping": "takeshape:local:Asset.Hk6FQuz5"
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename",
+            "@l10n": false,
+            "minLength": 1,
+            "@mapping": "takeshape:local:Asset.H1oYQOM9"
+          },
+          "s3Key": {
+            "type": "string",
+            "title": "s3 key",
+            "@mapping": "takeshape:local:Asset.Hk6FQuz5"
+          },
+          "credit": {
+            "type": "object",
+            "title": "Credit",
+            "@mapping": "takeshape:local:Asset.Skn_i_5Ll",
+            "@tag": "draftjs"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "title": "Source URL",
+            "@l10n": false,
+            "@mapping": "takeshape:local:Asset.SJXSidnXE"
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        },
+        "required": [
+          "filename",
+          "path"
+        ]
+      }
+    },
+    "TsStaticSite": {
+      "id": "SITE",
+      "name": "TsStaticSite",
+      "title": "Static Site",
+      "model": {
+        "type": "multiple"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "@l10n": false,
+            "minLength": 1,
+            "@mapping": "takeshape:local:TsStaticSite.Ski9jLuXg"
+          },
+          "baseUrl": {
+            "type": "string",
+            "title": "Base URL",
+            "@l10n": false,
+            "minLength": 1,
+            "@mapping": "takeshape:local:TsStaticSite.Bk3tNmrfE"
+          },
+          "provider": {
+            "type": "string",
+            "default": "s3",
+            "title": "Provider",
+            "@l10n": false,
+            "oneOf": [
+              {
+                "enum": [
+                  "s3"
+                ],
+                "title": "S3"
+              },
+              {
+                "enum": [
+                  "gcs"
+                ],
+                "title": "Google Cloud Storage"
+              },
+              {
+                "enum": [
+                  "ftp"
+                ],
+                "title": "FTP Client"
+              },
+              {
+                "enum": [
+                  "azure"
+                ],
+                "title": "Azure Storage Account"
+              },
+              {
+                "enum": [
+                  "netlify"
+                ],
+                "title": "Netlify"
+              },
+              {
+                "enum": [
+                  "vercel"
+                ],
+                "title": "Vercel"
+              }
+            ],
+            "@mapping": "takeshape:local:TsStaticSite.SkwbT2hqe"
+          },
+          "idKey": {
+            "type": "string",
+            "title": "Id Key",
+            "@l10n": false,
+            "minLength": 1,
+            "@mapping": "takeshape:local:TsStaticSite.SyRhi8_me"
+          },
+          "secretKey": {
+            "type": "string",
+            "title": "Secret Key",
+            "@l10n": false,
+            "@sensitive": true,
+            "minLength": 1,
+            "@mapping": "takeshape:local:TsStaticSite.BkIajLdXl"
+          },
+          "destination": {
+            "type": "string",
+            "title": "Destination",
+            "@l10n": false,
+            "minLength": 1,
+            "@mapping": "takeshape:local:TsStaticSite.Hk6TsIdXl"
+          },
+          "privateAcl": {
+            "type": "boolean",
+            "title": "Private ACL",
+            "@l10n": false,
+            "@mapping": "takeshape:local:TsStaticSite.ByFe48wWU"
+          },
+          "environmentVariables": {
+            "type": "array",
+            "title": "Environment Variables",
+            "@l10n": false,
+            "items": {
+              "$ref": "#/shapes/TsStaticSiteEnvironmentVariables/schema"
+            },
+            "@mapping": "takeshape:local:TsStaticSite.9fj4UiNxY"
+          },
+          "triggers": {
+            "type": "array",
+            "title": "Publish Triggers",
+            "@l10n": false,
+            "items": {
+              "$ref": "#/shapes/TsStaticSiteTriggers/schema"
+            }
+          },
+          "templateHash": {
+            "type": "string",
+            "title": "Template Hash",
+            "@l10n": false,
+            "@mapping": "takeshape:local:TsStaticSite.S1QA3GYI8"
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        },
+        "required": [
+          "title",
+          "provider",
+          "destination"
+        ]
+      }
+    },
+    "TsStaticSiteEnvironmentVariables": {
+      "id": "9fj4UiNxY",
+      "name": "TsStaticSiteEnvironmentVariables",
+      "title": "Static Site EnvironmentVariables",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "@mapping": "takeshape:local:TsStaticSite.J8sbHgfdI"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value",
+            "@mapping": "takeshape:local:TsStaticSite.ndhh88DvG"
+          }
+        }
+      }
+    },
+    "TsStaticSiteTriggers": {
+      "id": "TsStaticSiteTriggers",
+      "name": "TsStaticSiteTriggers",
+      "title": "Static Site Triggers",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "contentTypeId": {
+            "type": "string",
+            "title": "Content Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Workflow Status"
+          }
+        }
+      }
+    },
+    "Category": {
+      "id": "rk1zbZZBQ",
+      "name": "Category",
+      "title": "Category",
+      "model": {
+        "type": "taxonomy"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "minLength": 1,
+            "@mapping": "takeshape:local:Category.SJibWZWSQ"
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      }
+    },
+    "Homepage": {
+      "id": "H1TFgJdIb",
+      "name": "Homepage",
+      "title": "Homepage",
+      "model": {
+        "type": "single"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "minLength": 0,
+            "@mapping": "takeshape:local:Homepage.BJfmu0OIZ"
+          },
+          "featuredCollections": {
+            "title": "Featured Collections",
+            "@mapping": "takeshape:local:Homepage.SJSRmG8r7",
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSRelationship/schema"
+            },
+            "@relationship": {
+              "shapeIds": [
+                "HkQlQfLH7"
+              ],
+              "type": "multiple"
+            }
+          },
+          "hero": {
+            "title": "Hero",
+            "@mapping": "takeshape:local:Homepage.ry4VnCD8W",
+            "$ref": "#/shapes/HomepageHero/schema"
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        }
+      }
+    },
+    "HomepageHero": {
+      "id": "ry4VnCD8W",
+      "name": "HomepageHero",
+      "title": "Homepage Hero",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "title": "Image",
+            "@mapping": "takeshape:local:HomepageHero.H1vBnAv8-",
+            "$ref": "#/shapes/TSRelationship/schema",
+            "@relationship": {
+              "shapeIds": [
+                "ASSET"
+              ],
+              "type": "single"
+            }
+          },
+          "featuredProduct": {
+            "title": "Featured Product",
+            "@mapping": "takeshape:local:HomepageHero.SJ1Xo0v8b",
+            "$ref": "#/shapes/TSRelationship/schema",
+            "@relationship": {
+              "shapeIds": [
+                "SJPfgZZBQ"
+              ],
+              "type": "single",
+              "relatedName": "heroFeaturedPost"
+            }
+          }
+        }
+      }
+    },
+    "SiteSettings": {
+      "id": "Skp0mAuUb",
+      "name": "SiteSettings",
+      "title": "Site Settings",
+      "model": {
+        "type": "single"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "siteTitle": {
+            "type": "string",
+            "title": "Site Title",
+            "minLength": 0,
+            "@mapping": "takeshape:local:SiteSettings.SkVAQA_8Z"
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        }
+      }
+    },
+    "Product": {
+      "id": "SJPfgZZBQ",
+      "name": "Product",
+      "title": "Product",
+      "model": {
+        "type": "multiple"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "title": "Name",
+            "@mapping": "takeshape:local:Product.rJBxeZWBX"
+          },
+          "andrewsTakeshapeStoreId": {
+            "type": "string",
+            "@mapping": "takeshape:local:Product.K66gvuh1h",
+            "title": "my-store",
+            "minLength": 1,
+            "pattern": "^gid://shopify/Product/\\d+$"
+          },
+          "andrewsTakeshapeStore": {
+            "$ref": "#/shapes/TSShopify_Product/schema",
+            "@resolver": {
+              "name": "graphql:query",
+              "service": "shopify:my-store",
+              "options": {
+                "fieldName": "product"
+              },
+              "argsMapping": {
+                "id": [
+                  [
+                    "jsonPath",
+                    {
+                      "path": "$.source.andrewsTakeshapeStoreId"
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "category": {
+            "$ref": "#/shapes/TSRelationship/schema",
+            "@relationship": {
+              "shapeIds": [
+                "rk1zbZZBQ"
+              ],
+              "type": "single"
+            },
+            "title": "Category",
+            "@mapping": "takeshape:local:Product.Hy5jb-ZHX"
+          },
+          "image": {
+            "$ref": "#/shapes/TSRelationship/schema",
+            "@relationship": {
+              "shapeIds": [
+                "ASSET"
+              ],
+              "type": "single"
+            },
+            "title": "Image",
+            "@mapping": "takeshape:local:Product.SyD9W-bBX"
+          },
+          "description": {
+            "minLength": 0,
+            "type": "string",
+            "title": "Description",
+            "@mapping": "takeshape:local:Product.HJedVZMrX"
+          },
+          "colors": {
+            "title": "Colors",
+            "items": {
+              "$ref": "#/shapes/ProductColors/schema"
+            },
+            "type": "array",
+            "@mapping": "takeshape:local:Product.rypyzWbrm"
+          },
+          "sizes": {
+            "title": "Sizes",
+            "items": {
+              "$ref": "#/shapes/ProductSizes/schema"
+            },
+            "type": "array",
+            "@mapping": "takeshape:local:Product.Sk2eMZ-rm"
+          },
+          "price": {
+            "minimum": 0,
+            "type": "number",
+            "title": "Price",
+            "@mapping": "takeshape:local:Product.S1abeZZH7"
+          },
+          "salePrice": {
+            "minimum": 0,
+            "type": "number",
+            "title": "Sale Price",
+            "@mapping": "takeshape:local:Product.r1BK-bbB7"
+          },
+          "soldOut": {
+            "default": false,
+            "type": "boolean",
+            "title": "Sold out",
+            "@mapping": "takeshape:local:Product.Skf_WZ-Bm"
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "workflow": "default"
+    },
+    "ProductSizes": {
+      "id": "Sk2eMZ-rm",
+      "name": "ProductSizes",
+      "title": "Product Sizes",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "title": "Name",
+            "@mapping": "takeshape:local:ProductSizes.BJVZMZ-BX"
+          }
+        }
+      }
+    },
+    "ProductColors": {
+      "id": "rypyzWbrm",
+      "name": "ProductColors",
+      "title": "Product Colors",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 0,
+            "type": "string",
+            "title": "Name",
+            "@mapping": "takeshape:local:ProductColors.SyrxM--Sm"
+          }
+        }
+      }
+    },
+    "Collection": {
+      "id": "HkQlQfLH7",
+      "name": "Collection",
+      "title": "Collection",
+      "model": {
+        "type": "taxonomy"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "minLength": 1,
+            "@mapping": "takeshape:local:Collection.HJ0aGfIBm"
+          },
+          "image": {
+            "title": "Image",
+            "@mapping": "takeshape:local:Collection.S1iNXGIH7",
+            "$ref": "#/shapes/TSRelationship/schema",
+            "@relationship": {
+              "shapeIds": [
+                "ASSET"
+              ],
+              "type": "single"
+            }
+          },
+          "products": {
+            "title": "Products",
+            "@mapping": "takeshape:local:Collection.S1raGfUrX",
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSRelationship/schema"
+            },
+            "@relationship": {
+              "shapeIds": [
+                "SJPfgZZBQ"
+              ],
+              "type": "multiple"
+            }
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": [
+                  "r1uCfi4ZL",
+                  "disabled"
+                ],
+                "title": "Disabled"
+              },
+              {
+                "enum": [
+                  "rkhRGs4WL",
+                  "enabled"
+                ],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        },
+        "required": [
+          "title",
+          "image"
+        ]
+      }
+    },
+    "TSShopify_Product": {
+      "name": "TSShopify_Product",
+      "title": "Product",
+      "id": "TSShopify_product",
+      "description": "Represents a product, including information about related collections and product variants.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "descriptionHtml": {
+            "description": "The description of the product, complete with HTML formatting.",
+            "@tag": "HTML",
+            "@mapping": "shopify:my-store:Product.descriptionHtml",
+            "type": "string",
+            "title": "Description Html",
+            "readOnly": true
+          },
+          "handle": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.handle",
+            "description": "A unique human-friendly string of the product's title.",
+            "title": "Handle",
+            "readOnly": true
+          },
+          "productType": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.productType",
+            "description": "The product type specified by the merchant.",
+            "title": "Product Type",
+            "readOnly": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "@mapping": "shopify:my-store:Product.tags",
+            "description": "A comma separated list of tags that have been added to the product.",
+            "title": "Tags",
+            "readOnly": true
+          },
+          "templateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.templateSuffix",
+            "description": "The theme template used when viewing the product in a store.",
+            "title": "Template Suffix",
+            "readOnly": true
+          },
+          "giftCardTemplateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.giftCardTemplateSuffix",
+            "description": "The theme template used when viewing the gift card in a store.",
+            "title": "Gift Card Template Suffix",
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.title",
+            "description": "The title of the product.",
+            "title": "Title",
+            "readOnly": true
+          },
+          "vendor": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.vendor",
+            "description": "The name of the product's vendor.",
+            "title": "Vendor",
+            "readOnly": true
+          },
+          "bodyHtml": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Product.bodyHtml",
+            "@deprecationReason": "Use `descriptionHtml` instead",
+            "description": "The description of the product, complete with HTML formatting.",
+            "title": "Body Html",
+            "readOnly": true
+          },
+          "publishedAt": {
+            "description": "The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))\nwhen the product was published to the Online Store.",
+            "@tag": "DateTime",
+            "@mapping": "shopify:my-store:Product.publishedAt",
+            "format": "date-time",
+            "type": "string",
+            "title": "Published At",
+            "readOnly": true
+          },
+          "variants": {
+            "$ref": "#/shapes/TSShopify_ProductVariantConnection/schema",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "first": {
+                  "type": "integer",
+                  "description": "Returns up to the first `n` elements from the list."
+                },
+                "after": {
+                  "type": "string",
+                  "description": "Returns the elements that come after the specified cursor."
+                },
+                "last": {
+                  "type": "integer",
+                  "description": "Returns up to the last `n` elements from the list."
+                },
+                "before": {
+                  "type": "string",
+                  "description": "Returns the elements that come before the specified cursor."
+                },
+                "reverse": {
+                  "type": "boolean",
+                  "description": "Reverse the order of the underlying list."
+                },
+                "sortKey": {
+                  "description": "Sort the underlying list by the given key.",
+                  "enum": [
+                    "TITLE",
+                    "NAME",
+                    "SKU",
+                    "INVENTORY_QUANTITY",
+                    "INVENTORY_MANAGEMENT",
+                    "INVENTORY_LEVELS_AVAILABLE",
+                    "INVENTORY_POLICY",
+                    "FULL_TITLE",
+                    "POPULAR",
+                    "POSITION",
+                    "ID",
+                    "RELEVANCE"
+                  ]
+                }
+              }
+            },
+            "description": "A list of variants associated with the product.",
+            "title": "Variants",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "title"
+        ]
+      }
+    },
+    "TSShopify_ProductVariant": {
+      "name": "TSShopify_ProductVariant",
+      "title": "ProductVariant",
+      "id": "TSShopify_productVariant",
+      "description": "Represents a product variant.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "barcode": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductVariant.barcode",
+            "description": "The value of the barcode associated with the product.",
+            "title": "Barcode",
+            "readOnly": true
+          },
+          "compareAtPrice": {
+            "description": "The compare-at price of the variant in the default shop currency.",
+            "@tag": "Money",
+            "@mapping": "shopify:my-store:ProductVariant.compareAtPrice",
+            "type": "string",
+            "title": "Compare At Price",
+            "readOnly": true
+          },
+          "harmonizedSystemCode": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductVariant.harmonizedSystemCode",
+            "@deprecationReason": "Use `InventoryItem.harmonizedSystemCode` instead.",
+            "description": "The Harmonized System Code (or HS Tariff Code) for the variant.",
+            "title": "Harmonized System Code",
+            "readOnly": true
+          },
+          "inventoryManagement": {
+            "description": "The fulfillment service that tracks the number of items in stock for the product variant.",
+            "enum": [
+              "SHOPIFY",
+              "NOT_MANAGED",
+              "FULFILLMENT_SERVICE"
+            ],
+            "@mapping": "shopify:my-store:ProductVariant.inventoryManagement",
+            "@deprecationReason": "Use tracked attribute on `inventoryItem` instead.",
+            "type": "string",
+            "title": "Inventory Management",
+            "readOnly": true
+          },
+          "position": {
+            "type": "integer",
+            "@mapping": "shopify:my-store:ProductVariant.position",
+            "description": "The order of the product variant in the list of product variants. The first position in the list is 1.",
+            "title": "Position",
+            "readOnly": true
+          },
+          "price": {
+            "description": "The price of the product variant in the default shop currency.",
+            "@tag": "Money",
+            "@mapping": "shopify:my-store:ProductVariant.price",
+            "type": "string",
+            "title": "Price",
+            "readOnly": true
+          },
+          "requiresShipping": {
+            "type": "boolean",
+            "@mapping": "shopify:my-store:ProductVariant.requiresShipping",
+            "@deprecationReason": "Use `InventoryItem.requiresShipping` instead.",
+            "description": "Whether a customer needs to provide a shipping address when placing an order for the product variant.",
+            "title": "Requires Shipping",
+            "readOnly": true
+          },
+          "sku": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductVariant.sku",
+            "description": "An identifier for the product variant in the shop. Required in order to connect to a fulfillment service.",
+            "title": "Sku",
+            "readOnly": true
+          },
+          "taxable": {
+            "type": "boolean",
+            "@mapping": "shopify:my-store:ProductVariant.taxable",
+            "description": "Whether a tax is charged when the product variant is sold.",
+            "title": "Taxable",
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductVariant.title",
+            "description": "The title of the product variant.",
+            "title": "Title",
+            "readOnly": true
+          },
+          "taxCode": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductVariant.taxCode",
+            "description": "The tax code for the product variant.",
+            "title": "Tax Code",
+            "readOnly": true
+          },
+          "weight": {
+            "type": "number",
+            "@mapping": "shopify:my-store:ProductVariant.weight",
+            "description": "The weight of the product variant in the unit system specified with weight_unit.",
+            "title": "Weight",
+            "readOnly": true
+          },
+          "weightUnit": {
+            "description": "The unit of measurement that applies to the product variant's weight. If you\ndon't specify a value for weight_unit, then the shop's default unit of\nmeasurement is applied. Valid values: `g`, `kg`, `oz`, `lb`.",
+            "enum": [
+              "KILOGRAMS",
+              "GRAMS",
+              "POUNDS",
+              "OUNCES"
+            ],
+            "@mapping": "shopify:my-store:ProductVariant.weightUnit",
+            "type": "string",
+            "title": "Weight Unit",
+            "readOnly": true
+          }
+        },
+        "required": []
+      }
+    },
+    "TSShopify_Collection": {
+      "name": "TSShopify_Collection",
+      "title": "Collection",
+      "id": "TSShopify_collection",
+      "description": "Represents a collection of products.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "descriptionHtml": {
+            "description": "The description of the collection, complete with HTML formatting.",
+            "@tag": "HTML",
+            "@mapping": "shopify:my-store:Collection.descriptionHtml",
+            "type": "string",
+            "title": "Description Html",
+            "readOnly": true
+          },
+          "handle": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Collection.handle",
+            "description": "A unique human-friendly string for the collection. Automatically generated from the collection's title.",
+            "title": "Handle",
+            "readOnly": true
+          },
+          "products": {
+            "$ref": "#/shapes/TSShopify_ProductConnection/schema",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "first": {
+                  "type": "integer",
+                  "description": "Returns up to the first `n` elements from the list."
+                },
+                "after": {
+                  "type": "string",
+                  "description": "Returns the elements that come after the specified cursor."
+                },
+                "last": {
+                  "type": "integer",
+                  "description": "Returns up to the last `n` elements from the list."
+                },
+                "before": {
+                  "type": "string",
+                  "description": "Returns the elements that come before the specified cursor."
+                },
+                "reverse": {
+                  "type": "boolean",
+                  "description": "Reverse the order of the underlying list."
+                },
+                "sortKey": {
+                  "description": "Sort the underlying list by the given key.",
+                  "enum": [
+                    "TITLE",
+                    "PRICE",
+                    "BEST_SELLING",
+                    "CREATED",
+                    "ID",
+                    "MANUAL",
+                    "COLLECTION_DEFAULT",
+                    "RELEVANCE"
+                  ]
+                },
+                "query": {
+                  "type": "string",
+                  "description": "This field is only used when the collection is smart. If the collection is custom it returns an error.\nSupported filter parameters:\n - `title`\n - `product_type`\n - `vendor`\n - `gift_card`\n - `created_at`\n - `updated_at`\n\nSee the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax)."
+                }
+              }
+            },
+            "description": "The products that are included in the collection.",
+            "title": "Products",
+            "readOnly": true
+          },
+          "templateSuffix": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Collection.templateSuffix",
+            "description": "The theme template used when viewing this collection in a store.",
+            "title": "Template Suffix",
+            "readOnly": true
+          },
+          "sortOrder": {
+            "description": "The order in which the collection's products are sorted.",
+            "enum": [
+              "ALPHA_ASC",
+              "ALPHA_DESC",
+              "BEST_SELLING",
+              "CREATED",
+              "CREATED_DESC",
+              "MANUAL",
+              "PRICE_ASC",
+              "PRICE_DESC"
+            ],
+            "@mapping": "shopify:my-store:Collection.sortOrder",
+            "type": "string",
+            "title": "Sort Order",
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "@mapping": "shopify:my-store:Collection.title",
+            "description": "The title of the collection.",
+            "title": "Title",
+            "readOnly": true
+          },
+          "seo": {
+            "$ref": "#/shapes/TSShopify_SEO/schema",
+            "description": "SEO information for the collection.",
+            "title": "Seo",
+            "readOnly": true
+          }
+        },
+        "required": []
+      }
+    },
+    "TSShopify_SEO": {
+      "name": "SEO",
+      "title": "SEO",
+      "id": "seo",
+      "description": "SEO information.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "@mapping": "shopify:my-store:SEO.description",
+            "description": "SEO Description."
+          },
+          "title": {
+            "type": "string",
+            "@mapping": "shopify:my-store:SEO.title",
+            "description": "SEO Title."
+          }
+        }
+      }
+    },
+    "TSShopify_ProductConnection": {
+      "name": "ProductConnection",
+      "title": "ProductConnection",
+      "id": "productConnection",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "edges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSShopify_ProductEdge/schema"
+            },
+            "@mapping": "shopify:my-store:ProductConnection.edges",
+            "description": "A list of edges."
+          },
+          "pageInfo": {
+            "$ref": "#/shapes/TSShopify_PageInfo/schema",
+            "description": "Information to aid in pagination."
+          }
+        },
+        "required": [
+          "edges",
+          "pageInfo"
+        ]
+      }
+    },
+    "TSShopify_ProductEdge": {
+      "name": "ProductEdge",
+      "title": "ProductEdge",
+      "id": "productEdge",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductEdge.cursor",
+            "description": "A cursor for use in pagination."
+          },
+          "node": {
+            "$ref": "#/shapes/TSShopify_Product/schema",
+            "description": "The item at the end of ProductEdge."
+          }
+        },
+        "required": [
+          "cursor",
+          "node"
+        ]
+      }
+    },
+    "TSShopify_ProductVariantConnection": {
+      "name": "ProductVariantConnection",
+      "title": "ProductVariantConnection",
+      "id": "productVariantConnection",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "edges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSShopify_ProductVariantEdge/schema"
+            },
+            "@mapping": "shopify:my-store:ProductVariantConnection.edges",
+            "description": "A list of edges."
+          },
+          "pageInfo": {
+            "$ref": "#/shapes/TSShopify_PageInfo/schema",
+            "description": "Information to aid in pagination."
+          }
+        },
+        "required": [
+          "edges",
+          "pageInfo"
+        ]
+      }
+    },
+    "TSShopify_ProductVariantEdge": {
+      "name": "ProductVariantEdge",
+      "title": "ProductVariantEdge",
+      "id": "productVariantEdge",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductVariantEdge.cursor",
+            "description": "A cursor for use in pagination."
+          },
+          "node": {
+            "$ref": "#/shapes/TSShopify_ProductVariant/schema",
+            "description": "The item at the end of ProductVariantEdge."
+          }
+        },
+        "required": [
+          "cursor",
+          "node"
+        ]
+      }
+    },
+    "TSShopify_PageInfo": {
+      "name": "PageInfo",
+      "title": "PageInfo",
+      "id": "pageInfo",
+      "description": "Information about pagination in a connection.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "hasNextPage": {
+            "type": "boolean",
+            "@mapping": "shopify:my-store:PageInfo.hasNextPage",
+            "description": "Indicates if there are more pages to fetch."
+          },
+          "hasPreviousPage": {
+            "type": "boolean",
+            "@mapping": "shopify:my-store:PageInfo.hasPreviousPage",
+            "description": "Indicates if there are any pages prior to the current page."
+          }
+        },
+        "required": [
+          "hasNextPage",
+          "hasPreviousPage"
+        ]
+      }
+    },
+    "TSShopify_CollectionConnection": {
+      "name": "CollectionConnection",
+      "title": "CollectionConnection",
+      "id": "collectionConnection",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "edges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSShopify_CollectionEdge/schema"
+            },
+            "@mapping": "shopify:my-store:CollectionConnection.edges",
+            "description": "A list of edges."
+          },
+          "pageInfo": {
+            "$ref": "#/shapes/TSShopify_PageInfo/schema",
+            "description": "Information to aid in pagination."
+          }
+        },
+        "required": [
+          "edges",
+          "pageInfo"
+        ]
+      }
+    },
+    "TSShopify_CollectionEdge": {
+      "name": "CollectionEdge",
+      "title": "CollectionEdge",
+      "id": "collectionEdge",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "@mapping": "shopify:my-store:CollectionEdge.cursor",
+            "description": "A cursor for use in pagination."
+          },
+          "node": {
+            "$ref": "#/shapes/TSShopify_Collection/schema",
+            "description": "The item at the end of CollectionEdge."
+          }
+        },
+        "required": [
+          "cursor",
+          "node"
+        ]
+      }
+    },
+    "TSShopify_ProductOption": {
+      "name": "ProductOption",
+      "title": "ProductOption",
+      "id": "productOption",
+      "description": "Custom product property names like \"Size\", \"Color\", and \"Material\".\nProducts are based on permutations of these options.\nA product may have a maximum of 3 options.\n255 characters limit each.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "@tag": "id",
+            "@mapping": "shopify:my-store:ProductOption.id",
+            "description": "Globally unique identifier."
+          },
+          "name": {
+            "type": "string",
+            "@mapping": "shopify:my-store:ProductOption.name",
+            "description": "The product option’s name."
+          },
+          "position": {
+            "type": "integer",
+            "@mapping": "shopify:my-store:ProductOption.position",
+            "description": "The product option's position."
+          },
+          "translations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/shapes/TSShopify_PublishedTranslation/schema"
+            },
+            "@mapping": "shopify:my-store:ProductOption.translations",
+            "@args": {
+              "type": "object",
+              "properties": {
+                "locale": {
+                  "type": "string",
+                  "description": "Filters translations locale."
+                }
+              },
+              "required": [
+                "locale"
+              ]
+            },
+            "description": "The translations associated with the resource."
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "@mapping": "shopify:my-store:ProductOption.values",
+            "description": "The corresponding value to the product option name."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "position",
+          "translations",
+          "values"
+        ]
+      }
+    },
+    "TSShopify_PublishedTranslation": {
+      "name": "PublishedTranslation",
+      "title": "PublishedTranslation",
+      "id": "publishedTranslation",
+      "description": "Published translation of a field of a resource.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "@mapping": "shopify:my-store:PublishedTranslation.key",
+            "description": "Translation key."
+          },
+          "locale": {
+            "type": "string",
+            "@mapping": "shopify:my-store:PublishedTranslation.locale",
+            "description": "Translation locale."
+          },
+          "value": {
+            "type": "string",
+            "@mapping": "shopify:my-store:PublishedTranslation.value",
+            "description": "Translation value."
+          }
+        },
+        "required": [
+          "key",
+          "locale"
+        ]
+      }
+    }
+  },
+  "forms": {
+    "Asset": {
+      "default": {
+        "properties": {
+          "path": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "filename": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "s3Key": {
+            "disabled": true,
+            "widget": "singleLineText"
+          },
+          "caption": {
+            "widget": "wysiwygSingleLineText",
+            "disabled": true
+          },
+          "description": {
+            "widget": "paragraphText",
+            "disabled": true
+          },
+          "uploadStatus": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "mimeType": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "credit": {
+            "widget": "wysiwygSingleLineText",
+            "disabled": true
+          },
+          "title": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "sourceUrl": {
+            "widget": "singleLineText",
+            "disabled": true
+          }
+        },
+        "order": [
+          "title",
+          "description",
+          "caption",
+          "credit",
+          "filename",
+          "path",
+          "s3Key",
+          "mimeType",
+          "uploadStatus",
+          "sourceUrl"
+        ]
+      }
+    },
+    "TsStaticSite": {
+      "default": {
+        "order": [
+          "title",
+          "provider",
+          "destination",
+          "idKey",
+          "secretKey",
+          "environmentVariables"
+        ],
+        "properties": {
+          "title": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "provider": {
+            "widget": "dropdown",
+            "disabled": true
+          },
+          "destination": {
+            "widget": "singleLineText",
+            "instructions": "Deployment Bucket or FTP Host",
+            "disabled": true
+          },
+          "idKey": {
+            "widget": "singleLineText",
+            "instructions": "AWS Access Key ID or Google Cloud Storage Client Email or FTP Username",
+            "disabled": true
+          },
+          "secretKey": {
+            "widget": "sensitiveField",
+            "instructions": "AWS Secret Access Key or Google Cloud Storage Private Key or FTP Password",
+            "multiline": true,
+            "disabled": true
+          },
+          "environmentVariables": {
+            "widget": "repeater",
+            "order": [
+              "name",
+              "value"
+            ],
+            "disabled": true,
+            "properties": {
+              "name": {
+                "widget": "singleLineText",
+                "disabled": true
+              },
+              "value": {
+                "widget": "singleLineText",
+                "disabled": true
+              }
+            }
+          }
+        }
+      },
+      "generalHeader": {
+        "order": [
+          "title",
+          "provider",
+          "baseUrl"
+        ],
+        "properties": {
+          "title": {
+            "widget": "singleLineText",
+            "disabled": true
+          },
+          "provider": {
+            "widget": "dropdown",
+            "disabled": true
+          },
+          "baseUrl": {
+            "widget": "singleLineText",
+            "disabled": true
+          }
+        }
+      },
+      "generalFooter": {
+        "order": [
+          "environmentVariables",
+          "triggers"
+        ],
+        "properties": {
+          "environmentVariables": {
+            "widget": "repeater",
+            "order": [
+              "name",
+              "value"
+            ],
+            "disabled": true,
+            "properties": {
+              "name": {
+                "widget": "singleLineText",
+                "disabled": true
+              },
+              "value": {
+                "widget": "singleLineText",
+                "disabled": true
+              }
+            }
+          },
+          "triggers": {
+            "widget": "repeater",
+            "order": [
+              "contentTypeId",
+              "status"
+            ],
+            "disabled": true,
+            "preview": "siteTriggerPreview",
+            "properties": {
+              "contentTypeId": {
+                "widget": "dropdown",
+                "disabled": true
+              },
+              "status": {
+                "widget": "dropdown",
+                "disabled": true
+              }
+            }
+          }
+        }
+      },
+      "s3": {
+        "order": [
+          "destination",
+          "idKey",
+          "secretKey",
+          "privateAcl"
+        ],
+        "properties": {
+          "destination": {
+            "widget": "singleLineText",
+            "instructions": "Deployment Bucket Name",
+            "disabled": true
+          },
+          "idKey": {
+            "widget": "singleLineText",
+            "instructions": "AWS Access Key ID",
+            "disabled": true
+          },
+          "secretKey": {
+            "widget": "sensitiveField",
+            "instructions": "AWS Secret Access Key",
+            "multiline": true,
+            "disabled": true
+          },
+          "privateAcl": {
+            "widget": "checkbox",
+            "instructions": "Disable public access to deployed files. This is useful when fronting S3 with CloudFront or with \"Block All Public Access\"",
+            "disabled": true
+          }
+        }
+      },
+      "gcs": {
+        "order": [
+          "destination",
+          "idKey",
+          "secretKey",
+          "privateAcl"
+        ],
+        "properties": {
+          "destination": {
+            "widget": "singleLineText",
+            "instructions": "Deployment Bucket Name",
+            "disabled": true
+          },
+          "idKey": {
+            "widget": "singleLineText",
+            "instructions": "Google Cloud Storage Client Email",
+            "disabled": true
+          },
+          "secretKey": {
+            "widget": "sensitiveField",
+            "instructions": "Google Cloud Storage Private Key",
+            "multiline": true,
+            "disabled": true
+          },
+          "privateAcl": {
+            "widget": "checkbox",
+            "instructions": "Disable public access to deployed files.",
+            "disabled": true
+          }
+        }
+      },
+      "ftp": {
+        "order": [
+          "destination",
+          "idKey",
+          "secretKey"
+        ],
+        "properties": {
+          "destination": {
+            "widget": "singleLineText",
+            "instructions": "FTP Host",
+            "disabled": true
+          },
+          "idKey": {
+            "widget": "singleLineText",
+            "instructions": "FTP Username",
+            "disabled": true
+          },
+          "secretKey": {
+            "widget": "sensitiveField",
+            "instructions": "FTP Password",
+            "multiline": true,
+            "disabled": true
+          }
+        }
+      },
+      "azure": {
+        "order": [
+          "destination",
+          "secretKey"
+        ],
+        "properties": {
+          "destination": {
+            "widget": "singleLineText",
+            "instructions": "Storage Account Name",
+            "disabled": true
+          },
+          "secretKey": {
+            "widget": "sensitiveField",
+            "instructions": "Access key",
+            "multiline": true,
+            "disabled": true
+          }
+        }
+      },
+      "netlify": {
+        "order": [
+          "destination"
+        ],
+        "properties": {
+          "destination": {
+            "widget": "publishTargets",
+            "itemTemplate": "siteDropdownItem",
+            "instructions": "Choose existing or create a new site.",
+            "disabled": true
+          }
+        }
+      },
+      "vercel": {
+        "order": [
+          "destination"
+        ],
+        "properties": {
+          "destination": {
+            "widget": "publishTargets",
+            "itemTemplate": "siteDropdownItem",
+            "instructions": "Choose existing or create a new project.",
+            "disabled": true
+          }
+        }
+      }
+    },
+    "Category": {
+      "default": {
+        "properties": {
+          "title": {
+            "widget": "singleLineText"
+          }
+        },
+        "order": [
+          "title"
+        ]
+      }
+    },
+    "Homepage": {
+      "default": {
+        "properties": {
+          "title": {
+            "widget": "singleLineText"
+          },
+          "featuredCollections": {
+            "widget": "relationship"
+          },
+          "hero": {
+            "properties": {
+              "image": {
+                "widget": "image"
+              },
+              "featuredProduct": {
+                "widget": "relationship"
+              }
+            },
+            "widget": "object",
+            "order": [
+              "image",
+              "featuredProduct"
+            ]
+          }
+        },
+        "order": [
+          "title",
+          "hero",
+          "featuredCollections"
+        ]
+      }
+    },
+    "SiteSettings": {
+      "default": {
+        "properties": {
+          "siteTitle": {
+            "widget": "singleLineText"
+          }
+        },
+        "order": [
+          "siteTitle"
+        ]
+      }
+    },
+    "Product": {
+      "default": {
+        "properties": {
+          "name": {
+            "widget": "singleLineText"
+          },
+          "andrewsTakeshapeStore": {
+            "properties": {
+              "descriptionHtml": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "handle": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "redirectNewHandle": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "productType": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "tags": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "templateSuffix": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "giftCard": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "giftCardTemplateSuffix": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "title": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "vendor": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "bodyHtml": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "publishDate": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "publishOn": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "published": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "publishedAt": {
+                "widget": "serviceObjectPropertyReadonly",
+                "provider": "shopify"
+              },
+              "variants": {
+                "widget": "shopifyRelationshipSummary",
+                "provider": "shopify"
+              }
+            },
+            "widget": "shopify",
+            "wrapper": "shopifyServiceWrapper",
+            "order": [
+              "title",
+              "handle",
+              "descriptionHtml",
+              "bodyHtml",
+              "tags",
+              "vendor",
+              "publishedAt",
+              "variants",
+              "collections",
+              "redirectNewHandle",
+              "productType",
+              "templateSuffix",
+              "giftCard",
+              "giftCardTemplateSuffix",
+              "publishDate",
+              "publishOn",
+              "published"
+            ]
+          },
+          "andrewsTakeshapeStoreId": {
+            "instructions": "Format: gid://shopify/Product/1111111111111",
+            "label": "product ID",
+            "widget": "serviceObjectIdReadonly",
+            "provider": "shopify",
+            "serviceObjectType": "product",
+            "service": "my-store"
+          },
+          "category": {
+            "widget": "relationship"
+          },
+          "image": {
+            "widget": "image"
+          },
+          "description": {
+            "widget": "markdownText"
+          },
+          "colors": {
+            "widget": "repeater",
+            "properties": {
+              "name": {
+                "widget": "singleLineText"
+              }
+            },
+            "order": [
+              "name"
+            ]
+          },
+          "sizes": {
+            "widget": "repeater",
+            "properties": {
+              "name": {
+                "widget": "singleLineText"
+              }
+            },
+            "order": [
+              "name"
+            ]
+          },
+          "price": {
+            "widget": "number"
+          },
+          "salePrice": {
+            "widget": "number"
+          },
+          "soldOut": {
+            "widget": "checkbox"
+          }
+        },
+        "order": [
+          "name",
+          "andrewsTakeshapeStoreId",
+          "andrewsTakeshapeStore",
+          "category",
+          "image",
+          "description",
+          "colors",
+          "sizes",
+          "price",
+          "salePrice",
+          "soldOut"
+        ]
+      }
+    },
+    "Collection": {
+      "default": {
+        "properties": {
+          "title": {
+            "widget": "singleLineText"
+          },
+          "image": {
+            "widget": "image"
+          },
+          "products": {
+            "widget": "relationship"
+          }
+        },
+        "order": [
+          "title",
+          "image",
+          "products"
+        ]
+      }
+    }
+  },
+  "services": {
+    "shopify:my-store": {
+      "auth": "lvtBohm7llF3IlhRQsYi3X30CqhaSWYC+koiMsLVTNR5TS55tB89jpbIEJRjydk7yy3puDJUj7ldb/I/UTQD38LWWNibvJM/WtNAuJC/Bv+FVSPjB30t5+YO2/XtrhVhRilsRzBx3QggNC7nf6MA6zxrPjA3/OI=",
+      "params": {
+        "type": "graphql",
+        "namespace": "Shopify",
+        "shop": "andrews-takeshape-store",
+        "authHeader": "X-Shopify-Access-Token",
+        "endpoint": "https://andrews-takeshape-store.myshopify.com/admin/api/2020-07/graphql.json"
+      }
+    }
+  },
+  "dataKey": "AQIDAHhcZWXOdlBglkxBhI23ElO/clC/kuw5ynjXDSqJgfTz8gHMjQiREjFxcW/EhMKDnKB/AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMHLapCmOvsrJjMGMsAgEQgDslkuS1D1IiscbwsnVQ8c0MaFrz747kN28GGg2NMBbl7/jUItR27k+JylncaR0HWKqX/q/henYEvOG5oQ=="
+}
