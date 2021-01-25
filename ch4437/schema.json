@@ -1,1 +1,482 @@
-
+{
+  "workflows": {
+    "default": {
+      "name": "default",
+      "title": "Default",
+      "steps": [
+        {
+          "name": "disabled",
+          "title": "Disabled",
+          "key": "r1uCfi4ZL",
+          "color": "#bdbdbd",
+          "live": false
+        },
+        {
+          "name": "enabled",
+          "title": "Enabled",
+          "key": "rkhRGs4WL",
+          "color": "#5cd79b",
+          "live": true
+        }
+      ]
+    }
+  },
+  "apiVersion": "2",
+  "defaultLocale": "en",
+  "locales": ["en"],
+  "projectId": "f0034a3a-28b0-4eda-ab65-f51c134e0593",
+  "version": 4,
+  "schemaVersion": "3",
+  "queries": {
+    "getProduct": {
+      "shape": "Product",
+      "resolver": {
+        "name": "takeshape:get",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Product"
+        }
+      },
+      "description": "Get a Product by ID",
+      "args": "TSGetArgs<Product>"
+    },
+    "getProductList": {
+      "shape": "PaginatedList<Product>",
+      "resolver": {
+        "name": "takeshape:list",
+        "service": "takeshape:local",
+        "options": {
+          "model": "Product"
+        }
+      },
+      "description": "Returns a list Product in natural order.",
+      "args": "TSListArgs<Product>"
+    }
+  },
+  "mutations": {
+    "upsertProduct": {
+      "shape": "UpdateResult<Product>",
+      "resolver": {
+        "resultsMapping": {
+          "debug_TakeshapeUpdate": [["get", {"path": "results.takeshapeUpdate"}]],
+          "debug_TakeshapeCreate": [["get", {"path": "results.takeshapeCreate"}]],
+          "debug_ShopifyProductUpdate": [["get", {"path": "results.shopifyProductUpdate"}]],
+          "debug_ShopifyProductCreate": [["get", {"path": "results.shopifyProductCreate"}]],
+          "result": [
+            [
+              "get",
+              {
+                "path": "results.finalTakeshapeResults"
+              }
+            ]
+          ]
+        },
+        "compose": [
+          {
+            "if": "isEmpty(args.input._id) != true",
+            "id": "takeshapeUpdate",
+            "argsMapping": [
+              [
+                "get",
+                {
+                  "path": "args"
+                }
+              ]
+            ],
+            "name": "takeshape:update",
+            "service": "local",
+            "options": {
+              "model": "Product"
+            }
+          },
+          {
+            "if": "isEmpty(args.input._id) == true",
+            "id": "takeshapeCreate",
+            "argsMapping": [
+              [
+                "get",
+                {
+                  "path": "args"
+                }
+              ]
+            ],
+            "name": "takeshape:create",
+            "service": "local",
+            "options": {
+              "model": "Product"
+            }
+          },
+          {
+            "if": "isEmpty(get('takeshapeUpdate.result.shopifyProductId', results)) != true || isEmpty(get('takeshapeCreate.result.shopifyProductId', results)) != true",
+            "id": "shopifyProductUpdate",
+            "argsMapping": {
+              "input.id": [
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeUpdate.result.shopifyProductId"
+                  }
+                ],
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeCreate.result.shopifyProductId"
+                  }
+                ]
+              ],
+              "input.title": [
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeUpdate.result.name"
+                  }
+                ],
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeCreate.result.name"
+                  }
+                ]
+              ]
+            },
+            "name": "graphql:mutation",
+            "service": "my-shopify-store",
+            "options": {
+              "fieldName": "productUpdate",
+              "selectionSet": "{ product { id } }"
+            }
+          },
+          {
+            "if": "isEmpty(get('takeshapeCreate.result.shopifyProductId', results)) == true && isEmpty(get('takeshapeUpdate.result.shopifyProductId', results)) == true",
+            "id": "shopifyProductCreate",
+            "argsMapping": {
+              "input.title": [
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeUpdate.result.name"
+                  }
+                ],
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeCreate.result.name"
+                  }
+                ]
+              ]
+            },
+            "name": "graphql:mutation",
+            "service": "my-shopify-store",
+            "options": {
+              "fieldName": "productCreate",
+              "selectionSet": "{ product { id } }"
+            }
+          },
+          {
+            "if": "isEmpty(get('shopifyProductCreate.product.id', results)) != true",
+            "argsMapping": {
+              "input._id": [
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeCreate.result._id"
+                  }
+                ],
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeUpdate.result._id"
+                  }
+                ]
+              ],
+              "input.shopifyProductId": [
+                [
+                  "get",
+                  {
+                    "path": "results.shopifyProductCreate.product.id"
+                  }
+                ]
+              ]
+            },
+            "name": "takeshape:update",
+            "service": "local",
+            "options": {
+              "model": "Product"
+            }
+          },
+          {
+            "id": "finalTakeshapeResults",
+            "argsMapping": {
+              "_id": [
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeUpdate.result._id"
+                  }
+                ],
+                [
+                  "get",
+                  {
+                    "path": "results.takeshapeCreate.result._id"
+                  }
+                ]
+              ]
+            },
+            "name": "takeshape:get",
+            "service": "local",
+            "options": {
+              "model": "Product"
+            }
+          }
+        ]
+      },
+      "description": "Update Product",
+      "args": "UpdateArgs<Product>"
+    }
+  },
+  "created": "2017-07-13T19:16:10.801Z",
+  "updated": "2020-11-02T19:18:41.453Z",
+  "shapes": {
+    "Product": {
+      "id": "Product",
+      "name": "Product",
+      "title": "Product",
+      "model": {
+        "type": "multiple"
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "title": "Name",
+            "@mapping": "takeshape:local:Product.rJBxeZWBX"
+          },
+          "shopifyProductId": {
+            "type": "string",
+            "@mapping": "takeshape:local:Product.K66gvuh1h",
+            "title": "my-store",
+            "minLength": 1,
+            "pattern": "^gid://shopify/Product/\\d+$"
+          },
+          "shopifyProduct": {
+            "@ref": "my-shopify-store:Product",
+            "@resolver": {
+              "name": "graphql:query",
+              "service": "my-shopify-store",
+              "options": {
+                "fieldName": "product"
+              },
+              "argsMapping": {
+                "id": [
+                  [
+                    "get",
+                    {
+                      "path": "source.shopifyProductId"
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "_id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "_version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "_shapeId": {
+            "title": "Shape Id",
+            "type": "string"
+          },
+          "_shapeName": {
+            "title": "Shape Name",
+            "type": "string"
+          },
+          "_createdAt": {
+            "title": "Created",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_createdBy": {
+            "title": "Created By",
+            "type": "string",
+            "@user": true
+          },
+          "_updatedAt": {
+            "title": "Updated",
+            "type": "string",
+            "format": "date-time"
+          },
+          "_updatedBy": {
+            "title": "Updated By",
+            "type": "string",
+            "@user": true
+          },
+          "_schemaVersion": {
+            "title": "Schema Version",
+            "type": "number"
+          },
+          "_enabled": {
+            "title": "Enabled",
+            "type": "boolean",
+            "@deprecationReason": "Use _status instead"
+          },
+          "_enabledAt": {
+            "title": "Enabled Date",
+            "type": "string",
+            "format": "date-time",
+            "@deprecationReason": "Use a custom date field instead"
+          },
+          "_status": {
+            "type": "string",
+            "title": "Status",
+            "oneOf": [
+              {
+                "enum": ["r1uCfi4ZL", "disabled"],
+                "title": "Disabled"
+              },
+              {
+                "enum": ["rkhRGs4WL", "enabled"],
+                "title": "Enabled"
+              }
+            ],
+            "@workflow": "default"
+          }
+        },
+        "required": ["name"]
+      },
+      "workflow": "default"
+    }
+  },
+  "forms": {
+    "Product": {
+      "default": {
+        "properties": {
+          "name": {
+            "widget": "singleLineText"
+          },
+          "shopifyProduct": {
+            "properties": {
+              "descriptionHtml": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "handle": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "redirectNewHandle": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "productType": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "tags": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "templateSuffix": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "giftCard": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "giftCardTemplateSuffix": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "title": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "vendor": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "bodyHtml": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "publishDate": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "publishOn": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "published": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "publishedAt": {
+                "widget": "serviceObjectProperty",
+                "provider": "shopify"
+              },
+              "variants": {
+                "widget": "shopifyRelationshipSummary",
+                "provider": "shopify"
+              }
+            },
+            "widget": "shopify",
+            "wrapper": "shopifyServiceWrapper",
+            "order": [
+              "title",
+              "handle",
+              "descriptionHtml",
+              "bodyHtml",
+              "tags",
+              "vendor",
+              "publishedAt",
+              "variants",
+              "collections",
+              "redirectNewHandle",
+              "productType",
+              "templateSuffix",
+              "giftCard",
+              "giftCardTemplateSuffix",
+              "publishDate",
+              "publishOn",
+              "published"
+            ]
+          },
+          "shopifyProductId": {
+            "instructions": "Format: gid://shopify/Product/1111111111111",
+            "label": "product ID",
+            "widget": "serviceObjectId",
+            "provider": "shopify",
+            "serviceObjectType": "product",
+            "service": "my-store"
+          }
+        },
+        "order": ["name", "shopifyProductId", "shopifyProduct"]
+      }
+    }
+  },
+  "services": {
+    "my-shopify-store": {
+      "auth": "9GYM7FD7YhR3rD5IhSYW9RAIUgEMkDWWLYCuqw8I5Xo48OZsd+1ngPOT2TRkYLhGEWt7ZKMryktIBcLN+7akaaTE2pyLiXO9ZrROVJZSsQigkVGS392tDbRT9GKuLXnfrJHYE9CS/PEePlewdEDSb3c6xBgmcLU=",
+      "params": {
+        "type": "graphql",
+        "namespace": "Shopify",
+        "shop": "michaels-store-takeshape",
+        "authHeader": "X-Shopify-Access-Token",
+        "endpoint": "https://michaels-store-takeshape.myshopify.com/admin/api/2020-07/graphql.json",
+        "name": "test"
+      },
+      "accessToken": {
+        "accessToken": "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",
+        "scope": "write_products,read_product_listings"
+      }
+    }
+  },
+  "dataKey": "AQIDAHhcZWXOdlBglkxBhI23ElO/clC/kuw5ynjXDSqJgfTz8gHMjQiREjFxcW/EhMKDnKB/AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMHLapCmOvsrJjMGMsAgEQgDslkuS1D1IiscbwsnVQ8c0MaFrz747kN28GGg2NMBbl7/jUItR27k+JylncaR0HWKqX/q/henYEvOG5oQ=="
+}
