@@ -62,14 +62,14 @@
             [
               "get",
               {
-                "path": "results.finalTakeshapeResults"
+                "path": "steps.finalTakeshapeResults"
               }
             ]
           ]
         },
         "compose": [
           {
-            "if": "isEmpty(args.input._id) != true",
+            "if": "!isEmpty(args.input._id)",
             "id": "takeshapeUpdate",
             "argsMapping": [
               [
@@ -86,7 +86,7 @@
             }
           },
           {
-            "if": "isEmpty(args.input._id) == true",
+            "if": "isEmpty(args.input._id)",
             "id": "takeshapeCreate",
             "argsMapping": [
               [
@@ -103,20 +103,20 @@
             }
           },
           {
-            "if": "isEmpty(results.takeshapeUpdate.result.shopifyProductId) != true || isEmpty(results.takeshapeCreate.result.shopifyProductId) != true",
+            "if": "!isEmpty(steps.takeshapeUpdate.result.shopifyProductId) || !isEmpty(steps.takeshapeCreate.result.shopifyProductId)",
             "id": "shopifyProductUpdate",
             "argsMapping": {
               "input.id": [
                 [
                   "get",
                   {
-                    "path": "results.takeshapeUpdate.result.shopifyProductId"
+                    "path": "steps.takeshapeUpdate.result.shopifyProductId"
                   }
                 ],
                 [
                   "get",
                   {
-                    "path": "results.takeshapeCreate.result.shopifyProductId"
+                    "path": "steps.takeshapeCreate.result.shopifyProductId"
                   }
                 ]
               ],
@@ -124,13 +124,13 @@
                 [
                   "get",
                   {
-                    "path": "results.takeshapeUpdate.result.name"
+                    "path": "steps.takeshapeUpdate.result.name"
                   }
                 ],
                 [
                   "get",
                   {
-                    "path": "results.takeshapeCreate.result.name"
+                    "path": "steps.takeshapeCreate.result.name"
                   }
                 ]
               ]
@@ -143,20 +143,20 @@
             }
           },
           {
-            "if": "isEmpty(results.takeshapeCreate.result.shopifyProductId) == true && isEmpty(results.takeshapeUpdate.result.shopifyProductId) == true",
+            "if": "isEmpty(steps.takeshapeCreate.result.shopifyProductId) && isEmpty(steps.takeshapeUpdate.result.shopifyProductId)",
             "id": "shopifyProductCreate",
             "argsMapping": {
               "input.title": [
                 [
                   "get",
                   {
-                    "path": "results.takeshapeUpdate.result.name"
+                    "path": "steps.takeshapeUpdate.result.name"
                   }
                 ],
                 [
                   "get",
                   {
-                    "path": "results.takeshapeCreate.result.name"
+                    "path": "steps.takeshapeCreate.result.name"
                   }
                 ]
               ]
@@ -169,19 +169,19 @@
             }
           },
           {
-            "if": "isEmpty(results.shopifyProductCreate.product.id) != true",
+            "if": "!isEmpty(steps.shopifyProductCreate.product.id)",
             "argsMapping": {
               "input._id": [
                 [
                   "get",
                   {
-                    "path": "results.takeshapeCreate.result._id"
+                    "path": "steps.takeshapeCreate.result._id"
                   }
                 ],
                 [
                   "get",
                   {
-                    "path": "results.takeshapeUpdate.result._id"
+                    "path": "steps.takeshapeUpdate.result._id"
                   }
                 ]
               ],
@@ -189,7 +189,7 @@
                 [
                   "get",
                   {
-                    "path": "results.shopifyProductCreate.product.id"
+                    "path": "steps.shopifyProductCreate.product.id"
                   }
                 ]
               ]
@@ -207,13 +207,13 @@
                 [
                   "get",
                   {
-                    "path": "results.takeshapeUpdate.result._id"
+                    "path": "steps.takeshapeUpdate.result._id"
                   }
                 ],
                 [
                   "get",
                   {
-                    "path": "results.takeshapeCreate.result._id"
+                    "path": "steps.takeshapeCreate.result._id"
                   }
                 ]
               ]
