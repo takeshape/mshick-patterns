@@ -58,10 +58,6 @@
       "shape": "UpdateResult<Product>",
       "resolver": {
         "resultsMapping": {
-          "debug_TakeshapeUpdate": [["get", {"path": "results.takeshapeUpdate"}]],
-          "debug_TakeshapeCreate": [["get", {"path": "results.takeshapeCreate"}]],
-          "debug_ShopifyProductUpdate": [["get", {"path": "results.shopifyProductUpdate"}]],
-          "debug_ShopifyProductCreate": [["get", {"path": "results.shopifyProductCreate"}]],
           "result": [
             [
               "get",
@@ -107,7 +103,7 @@
             }
           },
           {
-            "if": "isEmpty(get('takeshapeUpdate.result.shopifyProductId', results)) != true || isEmpty(get('takeshapeCreate.result.shopifyProductId', results)) != true",
+            "if": "isEmpty(results.takeshapeUpdate.result.shopifyProductId) != true || isEmpty(results.takeshapeCreate.result.shopifyProductId) != true",
             "id": "shopifyProductUpdate",
             "argsMapping": {
               "input.id": [
@@ -147,7 +143,7 @@
             }
           },
           {
-            "if": "isEmpty(get('takeshapeCreate.result.shopifyProductId', results)) == true && isEmpty(get('takeshapeUpdate.result.shopifyProductId', results)) == true",
+            "if": "isEmpty(results.takeshapeCreate.result.shopifyProductId) == true && isEmpty(results.takeshapeUpdate.result.shopifyProductId) == true",
             "id": "shopifyProductCreate",
             "argsMapping": {
               "input.title": [
@@ -173,7 +169,7 @@
             }
           },
           {
-            "if": "isEmpty(get('shopifyProductCreate.product.id', results)) != true",
+            "if": "isEmpty(results.shopifyProductCreate.product.id) != true",
             "argsMapping": {
               "input._id": [
                 [
