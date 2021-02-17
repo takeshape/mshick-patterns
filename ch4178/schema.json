@@ -1,0 +1,97 @@
+{
+	"workflows": {},
+	"apiVersion": "2",
+	"defaultLocale": "en",
+	"locales": [
+		"en"
+	],
+	"projectId": "90ddca81-5e73-44a9-af20-c2555cebf7e9",
+	"version": 4,
+	"schemaVersion": "3",
+	"queries": {
+		"getCharacter": {
+			"shape": "Character",
+			"args": "CharacterInput",
+			"resolver": {
+				"resultsMapping": {
+					"name": [["get", {"path": "steps[0].name"}]],
+					"foo": [["get", {"path": "steps[0].name"}]]					
+				},
+				"name": "graphql:query",
+				"service": "graphql:rick-and-morty",
+				"argsMapping": {
+					"id": [
+						[
+							"get",
+							{
+								"path": "args.id"
+							}
+						]
+					]
+				},
+				"options": {
+					"fieldName": "character"
+				}
+			}
+		}
+	},
+	"mutations": {},
+	"shapes": {
+		"CharacterRemapped": {
+			"id": "CharacterRemapped",
+			"name": "CharacterRemapped",
+			"title": "CharacterRemapped",
+			"schema": {
+				"type": "object",
+				"properties": {
+					"foo": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"Character": {
+			"id": "Character",
+			"name": "Character",
+			"title": "Character",
+			"schema": {
+				"allOf": [
+					{
+						"@ref": "graphql:rick-and-morty:Character"
+					},
+					{
+						"@ref": "local:CharacterRemapped"
+					}
+				]
+			}
+		},
+		"CharacterInput": {
+			"id": "CharacterInput",
+			"name": "CharacterInput",
+			"title": "CharacterInput",
+			"schema": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					}
+				}
+			}
+		}
+	},
+	"created": "2017-07-13T19:16:10.801Z",
+	"updated": "2020-11-02T19:18:41.453Z",
+	"forms": {},
+	"services": {
+		"graphql:rick-and-morty": {
+			"params": {
+				"endpoint": "https://rickandmortyapi.com/graphql",
+				"namespace": "RickAndMorty",
+				"name": "rick-and-morty",
+				"type": "graphql",
+				"authType": "none"
+			}
+		}
+	},
+	"dataKey": "AQIDAHhcZWXOdlBglkxBhI23ElO/clC/kuw5ynjXDSqJgfTz8gHMjQiREjFxcW/EhMKDnKB/AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMHLapCmOvsrJjMGMsAgEQgDslkuS1D1IiscbwsnVQ8c0MaFrz747kN28GGg2NMBbl7/jUItR27k+JylncaR0HWKqX/q/henYEvOG5oQ=="
+}
