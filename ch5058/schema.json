@@ -1,9 +1,9 @@
 {
   "apiVersion": "2",
-  "projectId": "a45c0e72-3771-41c0-aee0-dad6cedbf517",
-  "version": 3,
+  "projectId": "cf32d44d-170c-461f-bbf4-855d6f5b98ad",
+  "version": 2,
   "created": "2021-01-22T20:12:08.896Z",
-  "updated": "2021-01-22T20:15:03.180Z",
+  "updated": "2021-03-03T19:12:21.663Z",
   "defaultLocale": "en-us",
   "locales": ["en-us"],
   "schemaVersion": "3",
@@ -13,19 +13,8 @@
       "resolver": {
         "name": "rest:get",
         "service": "rest:rick-n-morty",
-        "argsMapping": {
-          "pathParams.id": [
-            [
-              "get",
-              {
-                "path": "args.id"
-              }
-            ]
-          ]
-        },
-        "options": {
-          "path": "character/{id}"
-        }
+        "argsMapping": {"pathParams.id": [["get", {"path": "args.id"}]]},
+        "options": {"path": "character/{id}"}
       },
       "description": "Returns a list Author in natural order.",
       "args": "Rnm_GetCharacterArgs"
@@ -39,13 +28,7 @@
       "title": "Rnm_GetCharacterArgs",
       "schema": {
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id",
-            "@mapping": "rest:rick-n-morty:character.id"
-          }
-        },
+        "properties": {"id": {"type": "string", "title": "Id", "@mapping": "rest:rick-n-morty:character.id"}},
         "required": ["id"]
       }
     },
@@ -56,21 +39,9 @@
       "schema": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id",
-            "@mapping": "rest:rick-n-morty:character.id"
-          },
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "@mapping": "rest:rick-n-morty:character.name"
-          },
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "@mapping": "rest:rick-n-morty:character.status"
-          }
+          "id": {"type": "string", "title": "Id", "@mapping": "rest:rick-n-morty:character.id"},
+          "name": {"type": "string", "title": "Name", "@mapping": "rest:rick-n-morty:character.name"},
+          "status": {"type": "string", "title": "Status", "@mapping": "rest:rick-n-morty:character.status"}
         }
       }
     }
@@ -86,5 +57,6 @@
         "type": "rest"
       }
     }
-  }
+  },
+  "dataKey": "AQIDAHhcZWXOdlBglkxBhI23ElO/clC/kuw5ynjXDSqJgfTz8gGs0V9U9qOKlqicZ9d2p+45AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMzl46lhOMi4RGP3AkAgEQgDu0SsBk84UIM55pydDDKcz5L8EL02u/rhULFBliykTWhkSIv+EuqiaLVaqA7qVGJP84HpuPd+ZFORY/lw=="
 }
