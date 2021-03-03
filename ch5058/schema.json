@@ -58,18 +58,15 @@
         "properties": {
           "id": {
             "type": "string",
-            "title": "Id",
-            "@mapping": "rest:rick-n-morty:character.id"
+            "title": "Id"
           },
           "name": {
             "type": "string",
-            "title": "Name",
-            "@mapping": "rest:rick-n-morty:character.name"
+            "title": "Name"
           },
           "status": {
             "type": "string",
-            "title": "Status",
-            "@mapping": "rest:rick-n-morty:character.status"
+            "title": "Status"
           }
         }
       }
