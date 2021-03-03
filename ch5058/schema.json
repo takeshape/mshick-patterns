@@ -1,0 +1,91 @@
+{
+  "apiVersion": "2",
+  "projectId": "a45c0e72-3771-41c0-aee0-dad6cedbf517",
+  "version": 3,
+  "created": "2021-01-22T20:12:08.896Z",
+  "updated": "2021-01-22T20:15:03.180Z",
+  "defaultLocale": "en-us",
+  "locales": ["en-us"],
+  "schemaVersion": "3",
+  "queries": {
+    "getCharacter": {
+      "shape": "Rnm_Character",
+      "resolver": {
+        "name": "rest:get",
+        "service": "rest:rick-n-morty",
+        "argsMapping": {
+          "pathParams.id": [
+            [
+              "get",
+              {
+                "path": "args.id"
+              }
+            ]
+          ]
+        },
+        "options": {
+          "path": "character/:id"
+        }
+      },
+      "description": "Returns a list Author in natural order.",
+      "args": "Rnm_GetCharacterArgs"
+    }
+  },
+  "mutations": {},
+  "shapes": {
+    "Rnm_GetCharacterArgs": {
+      "id": "supaid2",
+      "name": "Rnm_GetCharacterArgs",
+      "title": "Rnm_GetCharacterArgs",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "@mapping": "rest:rick-n-morty:character.id"
+          }
+        },
+        "required": ["id"]
+      }
+    },
+    "Rnm_Character": {
+      "id": "supaid",
+      "name": "Rnm_Character",
+      "title": "Rnm_Character",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "@mapping": "rest:rick-n-morty:character.id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "@mapping": "rest:rick-n-morty:character.name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "@mapping": "rest:rick-n-morty:character.status"
+          }
+        }
+      }
+    }
+  },
+  "workflows": {},
+  "forms": {},
+  "services": {
+    "rest:rick-n-morty": {
+      "params": {
+        "authType": "none",
+        "name": "Rick N Morty",
+        "endpoint": "https://rickandmortyapi.com/api",
+        "type": "rest"
+      }
+    }
+  },
+  "dataKey": "AQIDAHi9nATJb1LYgj5u7ShOGp43y2H6TuckRKGDlwTU4b6ryQEtHOByKE08phj0xlD0jBalAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMv/VXyD3Yj97CBof9AgEQgDsi8NZ9aYOKSrpBV0Aou9P6asVYOzcoNae+fZZXEULLwPttXmyB8qh/4HvsmJA9Xz6h7dT8iK0DsD5+mA=="
+}
