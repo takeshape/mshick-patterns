@@ -24,7 +24,7 @@
           ]
         },
         "options": {
-          "path": "character/:id"
+          "path": "character/{id}"
         }
       },
       "description": "Returns a list Author in natural order.",
@@ -58,15 +58,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "title": "Id"
+            "title": "Id",
+            "@mapping": "rest:rick-n-morty:character.id"
           },
           "name": {
             "type": "string",
-            "title": "Name"
+            "title": "Name",
+            "@mapping": "rest:rick-n-morty:character.name"
           },
           "status": {
             "type": "string",
-            "title": "Status"
+            "title": "Status",
+            "@mapping": "rest:rick-n-morty:character.status"
           }
         }
       }
@@ -83,6 +86,5 @@
         "type": "rest"
       }
     }
-  },
-  "dataKey": "AQIDAHi9nATJb1LYgj5u7ShOGp43y2H6TuckRKGDlwTU4b6ryQEtHOByKE08phj0xlD0jBalAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMv/VXyD3Yj97CBof9AgEQgDsi8NZ9aYOKSrpBV0Aou9P6asVYOzcoNae+fZZXEULLwPttXmyB8qh/4HvsmJA9Xz6h7dT8iK0DsD5+mA=="
+  }
 }
