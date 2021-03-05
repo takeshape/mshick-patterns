@@ -1,0 +1,114 @@
+{
+  "apiVersion": "2",
+  "projectId": "cf32d44d-170c-461f-bbf4-855d6f5b98ad",
+  "version": 2,
+  "created": "2021-01-22T20:12:08.896Z",
+  "updated": "2021-03-03T19:12:21.663Z",
+  "defaultLocale": "en-us",
+  "locales": ["en-us"],
+  "schemaVersion": "3",
+  "queries": {
+    "getCharacterList": {
+      "shape": "PaginatedList<Character>",
+      "resolver": {
+        "resultsMapping": {
+          "items": [
+            [
+              "expressionEval",
+              { "expression": "keyBy('id', steps.locations)" }
+            ],
+            [
+              "expressionEval",
+              {
+                "expression": "[steps.characters.results, map(flow(property('location.url'), replace('https://rickandmortyapi.com/api/location/', ''), get(placeholder, previousStep), get('name'), set('locationName', placeholder, newObject)), steps.characters.results)]"
+              }
+            ],
+            ["zipAndMerge", {}]
+          ],
+          "total": [["get", { "path": "steps.characters.info.count" }]]
+        },
+        "compose": [
+          {
+            "id": "characters",
+            "name": "rest:get",
+            "service": "rest:rick-n-morty",
+            "argsMapping": {
+              "searchParams.page": [["get", { "path": "args.page" }]]
+            },
+            "options": {
+              "path": "character"
+            }
+          },
+          {
+            "id": "locations",
+            "name": "rest:get",
+            "service": "rest:rick-n-morty",
+            "argsMapping": {
+              "pathParams.locationIds": [
+                [
+                  "expressionEval",
+                  {
+                    "expression": "join(',', uniq(map(flow(property('location.url'), replace('https://rickandmortyapi.com/api/location/', '')), steps.characters.results)))"
+                  }
+                ]
+              ]
+            },
+            "options": {
+              "path": "location/{locationIds}"
+            }
+          }
+        ]
+      },
+      "description": "Returns a list Author in natural order.",
+      "args": "CharacterListArgs"
+    }
+  },
+  "mutations": {},
+  "shapes": {
+    "Character": {
+      "id": "Character",
+      "name": "Character",
+      "title": "Character",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "locationName": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CharacterListArgs": {
+      "id": "CharacterListArgs",
+      "name": "CharacterListArgs",
+      "title": "CharacterListArgs",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "workflows": {},
+  "forms": {},
+  "services": {
+    "rest:rick-n-morty": {
+      "params": {
+        "authType": "none",
+        "name": "Rick N Morty",
+        "endpoint": "https://rickandmortyapi.com/api",
+        "type": "rest"
+      }
+    }
+  },
+  "dataKey": "AQIDAHhcZWXOdlBglkxBhI23ElO/clC/kuw5ynjXDSqJgfTz8gGs0V9U9qOKlqicZ9d2p+45AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMzl46lhOMi4RGP3AkAgEQgDu0SsBk84UIM55pydDDKcz5L8EL02u/rhULFBliykTWhkSIv+EuqiaLVaqA7qVGJP84HpuPd+ZFORY/lw=="
+}
