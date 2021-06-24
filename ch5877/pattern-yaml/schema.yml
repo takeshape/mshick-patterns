@@ -1,12 +1,13 @@
+---
 apiVersion: '2'
-projectId: 05dac105-60f5-4b2f-baa9-040ac0f6400e
-version: 4
-created: '2021-06-08T13:12:26.923Z'
-updated: '2021-06-08T13:28:23.093Z'
+projectId: f56d44bb-8261-41e0-b3ee-af37931cb493
+version: 33
+created: '2021-06-08T18:37:52.440Z'
+updated: '2021-06-11T13:59:47.044Z'
 defaultLocale: en-us
 locales:
 - en-us
-schemaVersion: 3.1.0
+schemaVersion: 3.2.0
 queries:
   getMyProfile:
     shape: Profile
@@ -20,7 +21,6 @@ queries:
         - - get
           - path: claims.sub
     description: Get my Profile
-    args: GetMyProfileInput
   getProfile:
     shape: Profile
     resolver:
@@ -77,9 +77,6 @@ mutations:
           input.bio:
           - - get
             - path: args.bio
-          input.avatar.id:
-          - - get
-            - path: args.avatarId
         name: takeshape:create
         service: takeshape:local
         options:
@@ -148,13 +145,6 @@ mutations:
     description: Delete Profile
     args: DeleteArgs<Profile>
 shapes:
-  GetMyProfileInput:
-    id: GetMyProfileInput
-    name: GetMyProfileInput
-    title: GetMyProfileInput
-    schema:
-      type: object
-      properties: {}
   UpsertMyProfileInput:
     id: UpsertMyProfileInput
     name: UpsertMyProfileInput
@@ -171,7 +161,7 @@ shapes:
         avatarId:
           type: string
   Profile:
-    id: K1WGTS1Yn
+    id: 5NtDf9shq
     name: Profile
     title: Profile
     workflow: default
@@ -181,35 +171,35 @@ shapes:
       type: object
       properties:
         id:
+          minLength: 1
           type: string
-          minLength: 0
           description: ''
           title: ID
-          "@mapping": takeshape:local:Profile.zCUrxUP8h
+          "@mapping": takeshape:local:Profile.BMKpXA3Z9
         firstName:
           minLength: 0
           type: string
           description: ''
           title: First Name
-          "@mapping": takeshape:local:Profile.-DrKuNqxZ
+          "@mapping": takeshape:local:Profile.s4H8TVVHd
         lastName:
           minLength: 0
           type: string
           description: ''
           title: Last Name
-          "@mapping": takeshape:local:Profile.02oCExZgT
+          "@mapping": takeshape:local:Profile.P2YHMZMX6
         email:
-          type: string
           minLength: 0
+          type: string
           description: ''
           title: Email
-          "@mapping": takeshape:local:Profile.H8n0k9-ew
+          "@mapping": takeshape:local:Profile.YxXDEC3VM
         bio:
           minLength: 0
           type: string
           description: ''
           title: Bio
-          "@mapping": takeshape:local:Profile.2nWp5by8j
+          "@mapping": takeshape:local:Profile._OzVMMJ0Y
         avatar:
           description: ''
           "$ref": "#/shapes/TSRelationship/schema"
@@ -218,6 +208,8 @@ shapes:
             - ASSET
           title: Avatar
           "@mapping": takeshape:local:Profile.k0Ha4O7oV
+      required:
+      - id
 workflows: {}
 forms:
   Profile:
@@ -242,4 +234,15 @@ forms:
       - email
       - bio
       - avatar
+services:
+  my-auth-0:
+    id: my-auth-0
+    provider: auth0
+    title: My Auth0
+    serviceType: authentication
+    authenticationType: none
+    options:
+      domain: dev-by9w1mxg.us.auth0.com
+      audience: https://api.takeshape.io/project/f56d44bb-8261-41e0-b3ee-af37931cb493/my-auth-0
+dataKey: AQIDAHi9nATJb1LYgj5u7ShOGp43y2H6TuckRKGDlwTU4b6ryQHskEThHoHhklwoe2Rw4/jmAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM3DJr8ECSFYbCouO6AgEQgDtSErD6WdvvifPkue9Yb8cMrQ6DVPNK/2lFWwzyNOkHYq6tcg1kTIq/pWEzSL3CmSqDMS19/pZaQYy3dA==
 
