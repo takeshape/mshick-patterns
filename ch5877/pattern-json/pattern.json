@@ -1,0 +1,7 @@
+{
+  "name": "pattern-json",
+  "description": "pattern in all json format",
+  "icon": "lock",
+  "color": "#95bf46",
+  "categories": ["pr"]
+}
