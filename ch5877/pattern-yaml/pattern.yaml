@@ -1,0 +1,6 @@
+name: pattern yaml
+description: 'The pattern with yaml files.'
+icon: lock
+color: '#95bf46'
+categories:
+  - pr
